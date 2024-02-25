@@ -1,6 +1,6 @@
 <?php
 
-namespace Azzarip\Utilities;
+namespace Utilities;
 
 class CHF {
 
