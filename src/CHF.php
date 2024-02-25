@@ -5,7 +5,6 @@ namespace Azzarip\Utilities;
 class CHF {
 
     public $value;
-    public string $label;
 
     public static function chf($chf) {
         return new CHF(round(100*chf));
@@ -17,7 +16,6 @@ class CHF {
 
     public function __construct(public int $rappe) {
         $this->value = $rappe / 100;
-        $this->label = $this->getLabel();
     }
 
     public function sum(CHF $that): CHF
@@ -30,23 +28,29 @@ class CHF {
         return $this->getString();
     }
 
-    private function getString(): string
+    
+    public function format(): string
     {
         if ($this->rappe == 0) {
             return '0.-';
         }
-
+        
         if ($this->rappe % 100 == 0) {
             return $this->value . '.-';
         }
-      return number_format($this->value, 2, '.', '\'');
+        return $this->getString();
     }
     
-    private function getLabel(): string
+    public function label(): string
     {
         if ($this->rappe == 0){
             return 'Gratis';
         }
         return 'CHF ' . $this->getString();
+    }
+
+    private function getString(): string
+    {
+        return number_format($this->value, 2, '.', '\'');
     }
 }
