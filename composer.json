@@ -1,0 +1,19 @@
+{
+    "name": "azzarip/utilities",
+    "description": "Utilities for websites using Laravel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Paride Azzari",
+            "email": "paride21azzari@gmail.com"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Utilities\\": "src/"
+        }
+    }
+}
