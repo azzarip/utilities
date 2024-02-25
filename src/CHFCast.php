@@ -1,6 +1,6 @@
 <?php
 
-namespace Utilities;
+namespace Azzarip\Utilities;
 
 use Azzarip\Utilities\CHF;
 use Illuminate\Database\Eloquent\Model;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Utilities;
+namespace Azzarip\Utilities;
 
 class CHF {
 
@@ -39,7 +39,7 @@ class CHF {
         if ($this->rappe % 100 == 0) {
             return $this->value . '.-';
         }
-      return number_format($this->value, 2);
+      return number_format($this->value, 2, '.', '\'');
     }
     
     private function getLabel(): string
@@ -47,6 +47,6 @@ class CHF {
         if ($this->rappe == 0){
             return 'Gratis';
         }
-        return 'CHF '. $this->string;
+        return 'CHF ' . $this->getString();
     }
 }
