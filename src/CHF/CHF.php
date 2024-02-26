@@ -47,7 +47,7 @@ class CHF {
         if ($this->rappe == 0){
             return 'Gratis';
         }
-        return 'CHF ' . $this->getString();
+        return 'CHF ' . $this->format();
     }
 
     private function getString(): string
