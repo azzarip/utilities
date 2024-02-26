@@ -36,7 +36,7 @@ class CHF {
         }
         
         if ($this->rappe % 100 == 0) {
-            return number_format($this->value/100, 0, '.', '\'') . '.-';
+            return number_format($this->value, 0, '.', '\'') . '.-';
         }
         
         return $this->getString();
