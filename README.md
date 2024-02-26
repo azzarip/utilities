@@ -12,7 +12,7 @@ $chf = CHF::int(100)
 {{ $chf }} // 1.00
 $chf->format() // 1.-
 $chf->label() // CHF 1.-
-
+```
 # DROPBOX
 Contains the `DropboxServiceProvider` and `DropboxRefreshToken` to use in combination with spatie flysystem.
 ```
