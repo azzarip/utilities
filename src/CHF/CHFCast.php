@@ -1,8 +1,8 @@
 <?php
 
-namespace Azzarip\Utilities;
+namespace Azzarip\Utilities\CHF;
 
-use Azzarip\Utilities\CHF;
+use Azzarip\Utilities\CHF\CHF;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Azzarip\Utilities;
+namespace Azzarip\Utilities\CHF;
 
 class CHF {
 
@@ -36,8 +36,9 @@ class CHF {
         }
         
         if ($this->rappe % 100 == 0) {
-            return $this->value . '.-';
+            return number_format($this->value/100, 0, '.', '\'') . '.-';
         }
+        
         return $this->getString();
     }
     
