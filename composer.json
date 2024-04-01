@@ -14,10 +14,7 @@
     "autoload": {
         "psr-4": {
             "Azzarip\\Utilities\\": "src/"
-        },
-        "files": [
-            "src/helpers.php"
-        ]
+        }
     },
     "extra": {
         "branch-alias": {
