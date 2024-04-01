@@ -10,6 +10,7 @@ class AzzaripServiceProvider extends ServiceProvider
     public function booted()
     {
         CookiesServiceProvider::register();
+        return $this;
     }
 
 }
