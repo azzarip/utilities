@@ -13,4 +13,12 @@ class AzzaripServiceProvider extends ServiceProvider
             CookiesServiceProvider::register();
         });
     }
+
+    public function boot()
+    {
+        $this->publishes([
+            realpath(LCC_ROOT.'/resources/lang') => $this->app->langPath('vendor/azzarip'),
+        ], 'laravel-cookie-consent-lang');
+
+    }
 }
