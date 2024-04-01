@@ -17,7 +17,7 @@ class AzzaripServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            realpath(LCC_ROOT.'/resources/lang') => $this->app->langPath('vendor/azzarip'),
+            realpath(LCC_ROOT.'/resources/lang') => $this->app->langPath('vendor/cookieConsent'),
         ], 'laravel-cookie-consent-lang');
 
     }
