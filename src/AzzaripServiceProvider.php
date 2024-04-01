@@ -7,10 +7,10 @@ use Illuminate\Support\ServiceProvider;
 
 class AzzaripServiceProvider extends ServiceProvider
 {
-    public function booted()
+    public function register()
     {
-        CookiesServiceProvider::register();
-        return $this;
+        $this->booted(function () {
+            CookiesServiceProvider::register();
+        });
     }
-
 }
