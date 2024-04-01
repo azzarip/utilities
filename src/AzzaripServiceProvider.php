@@ -17,5 +17,6 @@ class AzzaripServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadTranslationsFrom(__DIR__.'/../lang/cookieConsent', 'cookieConsent');
+        $this->loadViewsFrom(__DIR__.'/../resources/views/cookie-consent', 'cookie-consent');
     }
 }
