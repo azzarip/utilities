@@ -10,6 +10,7 @@
         }
     ],
     "require": {
+        "whitecube/laravel-cookie-consent": "^1.2"
     },
     "autoload": {
         "psr-4": {
