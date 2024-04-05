@@ -3,6 +3,7 @@
 namespace Azzarip\Utilities\Cookies;
 
 use Whitecube\LaravelCookieConsent\Cookie;
+use Whitecube\LaravelCookieConsent\Consent;
 use Whitecube\LaravelCookieConsent\Facades\Cookies;
 
 class CookiesServiceProvider
@@ -20,8 +21,16 @@ class CookiesServiceProvider
         Cookies::optional();
 
         foreach (Cookies::getCategories() as $key => $category){
-            $category->cookie(function(Cookie $cookie) use($category) {
+            $category->cookie(function(Cookie $cookie) use ($category) {
                 $cookie->name($category->key())->duration(2 * 365 * 24 * 60);
+
+                $cookie->accepted(function (Consent $consent) use($category) {
+                    $consent->script('<script>
+                    window.dataLayer.cookie_consent = Object.assign({}, window.dataLayer.cookie_consent, { \''. $category->key() . '\': \'granted\' });
+                    </script>');
+                    $consent->script('<script>console.log(\''. $category->key() . '\');</script>');
+                });
+
             });
         }
     }
