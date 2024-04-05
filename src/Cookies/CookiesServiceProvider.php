@@ -28,7 +28,6 @@ class CookiesServiceProvider
                     $consent->script('<script>
                     window.dataLayer.cookie_consent = Object.assign({}, window.dataLayer.cookie_consent, { \''. $category->key() . '\': \'granted\' });
                     </script>');
-                    $consent->script('<script>console.log(\''. $category->key() . '\');</script>');
                 });
 
             });
