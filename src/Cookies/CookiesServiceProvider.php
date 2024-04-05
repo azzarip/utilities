@@ -26,7 +26,7 @@ class CookiesServiceProvider
 
                 $cookie->accepted(function (Consent $consent) use($category) {
                     $consent->script('<script>
-                    window.dataLayer.cookie_consent = Object.assign({}, window.dataLayer.cookie_consent, { \''. $category->key() . '\': \'granted\' });
+                    window.dataLayer.push({ \''. $category->key() . '\': \'granted\' });
                     </script>');
                 });
 
