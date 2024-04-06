@@ -28,6 +28,7 @@ class CookieConsent extends Component
     public function boot()
     {
         if(Cookie::has('cookie_consent')) {
+            $this->setCookie(Cookie::get('cookie_consent'));
             $this->skipRender();
             return;
         }
@@ -42,8 +43,13 @@ class CookieConsent extends Component
     private function setConsent()
     {
         $value = array_merge(['essentials' => 'granted'], $this->cookieValue);
-        Cookie::queue('cookie_consent', json_encode($value), 365*24*60, null, null, false, false);
+        $this->setCookie(json_encode($value));
         $this->show = false;
         $this->dispatch('cookie_consented');
+    }
+
+    private function setCookie($content)
+    {
+        Cookie::queue('cookie_consent', $content, 365*24*60, null, null, false, false);
     }
 }
