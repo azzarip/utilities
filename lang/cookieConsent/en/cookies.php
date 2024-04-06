@@ -19,7 +19,7 @@ return [
             'title' => 'Essential cookies',
             'description' => 'There are some cookies that we have to include in order for certain web pages to function. For this reason, they do not require your consent.',
         ],
-        'analytics' => [
+        'analytics_storage' => [
             'title' => 'Analytics cookies',
             'description' => 'We use these for internal research on how we can improve the service we provide for all our users. These cookies assess how you interact with our website.',
         ],

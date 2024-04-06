@@ -2,21 +2,15 @@
 
 namespace Azzarip\Utilities;
 
-use Azzarip\Utilities\Cookies\CookiesServiceProvider;
+use Livewire\Livewire;
 use Illuminate\Support\ServiceProvider;
 
 class AzzaripServiceProvider extends ServiceProvider
 {
-    public function register()
-    {
-        $this->booted(function () {
-            CookiesServiceProvider::register();
-        });
-    }
-
     public function boot()
     {
         $this->loadTranslationsFrom(__DIR__.'/../lang/cookieConsent', 'cookieConsent');
-        $this->loadViewsFrom(__DIR__.'/../resources/views/cookie-consent', 'cookie-consent');
+        $this->loadViewsFrom(__DIR__.'/Cookies/', 'cookie-consent');
+        Livewire::component('some-component', SomeComponent::class);
     }
 }

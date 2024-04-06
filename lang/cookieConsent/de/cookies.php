@@ -19,7 +19,7 @@ return [
             'title' => 'Notwendige Cookies',
             'description' => 'Es gibt einige Cookies, die wir einsetzen müssen, damit bestimmte Webseiten funktionieren. Aus diesem Grund benötigen sie nicht Ihre Zustimmung.',
         ],
-        'analytics' => [
+        'analytics_storage' => [
             'title' => 'Analytics Cookies',
             'description' => 'Wir verwenden diese Cookies für interne Forschungszwecke, um herauszufinden, wie wir den Service für alle unsere Nutzer verbessern können. Diese Cookies bewerten, wie Sie mit unserer Website interagieren.',
         ],
