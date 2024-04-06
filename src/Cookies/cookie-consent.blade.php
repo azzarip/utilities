@@ -40,7 +40,7 @@
                 <x-heroicon-s-chevron-down class="w-6 svg" x-show="!expand" />
             </div>
 
-            <div x-show="!expand" x-cloak id="cookies-policy-customize" class="mx-auto overflow-auto max-h-[450px]">
+            <div x-show="expand" x-cloak id="cookies-policy-customize" class="mx-auto overflow-auto max-h-[450px]">
                 <form wire:submit="acceptCustomized" class="w-11/12 px-2 mx-auto mb-5 space-y-4 lg:px-5"
                     x-data="{ 'checked' = [] }">
 
