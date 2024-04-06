@@ -13,7 +13,6 @@ class CookieConsent extends Component
     private $cookieValue = [];
     public $show = true;
     public $selected = [];
-    public $updateTypes = [];
     public function acceptAll(){
         $this->cookieValue = array_fill_keys($this->cookieCategories, 'granted');
         $this->setConsent();
