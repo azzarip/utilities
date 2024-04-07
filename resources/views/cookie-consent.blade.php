@@ -83,7 +83,10 @@
 @script
     <script>
         $wire.on('cookie_consented', () => {
-
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+            'event': 'updated_cookie_consent'
+            });
         });
     </script>
 @endscript
