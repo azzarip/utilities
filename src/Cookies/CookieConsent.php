@@ -37,7 +37,7 @@ class CookieConsent extends Component
     }
     public function render()
     {
-        return view('cookie-consent::cookie-consent');
+        return view('Azzarip::cookie-consent');
     }
 
     private function setConsent()
