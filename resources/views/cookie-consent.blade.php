@@ -11,7 +11,8 @@
                         angegeben.</p>
                     <p>In Bezug auf Werbung können wir und ausgewählte Dritte präzise Standortdaten und
                         Gerätekennungen verwenden, um Informationen auf einem Gerät zu speichern und/oder darauf
-                        zuzugreifen und personenbezogene Daten wie Ihre Nutzungsdaten zu verarbeiten.</p>
+                        zuzugreifen und personenbezogene Daten wie Ihre Nutzungsdaten zu verarbeiten. Weitere Informationen finden Sie in unserer 
+                        <a href="{{ route('cookie-policy') }}" class="inline-link">Cookie Policy</a></p>
                     <p class="max-lg:hidden">Sie können Ihre Zustimmung frei geben, ablehnen oder widerrufen,
                         jederzeit, indem Sie auf das Präferenzpanel zugreifen. Wenn Sie Ihre Zustimmung geben, gilt
                         sie nur für diese Domain. Die Verweigerung der Zustimmung kann die entsprechenden Funktionen
