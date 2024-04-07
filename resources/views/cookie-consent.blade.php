@@ -1,8 +1,8 @@
 <aside id="cookies-policy" x-data="{ 'expand': false }" x-show="$wire.show"
     data-text="{{ json_encode(__('cookieConsent::cookies.details')) }}">
-    <div class="fixed inset-0 flex items-center justify-center pointer-events-none z-100 bg-black/10">
-        <div class="fixed w-full max-w-4xl bg-white pointer-events-auto xl:-bottom-4 max-lg:bottom-1">
-            <div class="max-w-4xl mx-auto cookies__wrapper">
+    <div class="fixed inset-0 flex items-center justify-center pointer-events-none z-20 bg-black/10">
+        <div class="fixed bottom-0 w-full max-w-4xl px-4 pt-4 bg-white pointer-events-auto rounded-t-md">
+            <div class="max-w-4xl mx-auto">
                 <h2 class="mb-1 font-semibold text-center font-xl">@lang('cookieConsent::cookies.title')</h2>
                 <div class="max-lg:text-xs xl:text-sm">
                     <p>Wir und ausgewählte Dritte verwenden Cookies oder ähnliche Technologien für technische Zwecke
