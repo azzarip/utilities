@@ -30,10 +30,10 @@ class CookieConsent extends Component
     {
         if(Cookie::has('cookie_consent')) {
             $cookie = Cookie::get('cookie_consent');
-            $consent = json_decode($cookie, true);
+            $cookie = json_decode($cookie, true);
 
-            if(($consent['version'] ?? null) == self::VERSION){
-                $this->setconsent($consent);
+            if(($cookie['version'] ?? null) == self::VERSION){
+                $this->setconsent($cookie);
                 $this->skipRender();
             }
             return;
@@ -60,6 +60,6 @@ class CookieConsent extends Component
 
     private function setCookie($content)
     {
-        Cookie::queue('cookie_consent', json_encode($consent), 365*24*60, null, null, false, false);
+        Cookie::queue('cookie_consent', json_encode($content), 365*24*60, null, null, false, false);
     }
 }
