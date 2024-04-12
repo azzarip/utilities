@@ -30,15 +30,17 @@ class CookieConsent extends Component
     {
         if(Cookie::has('cookie_consent')) {
             $cookie = Cookie::get('cookie_consent');
-            if(($cookie['version'] ?? null) === self::VERSION){
-                $this->setCookie(json_decode($cookie['consent']));
+            $consent = json_decode($cookie, true);
+
+            if(($consent['version'] ?? null) == self::VERSION){
+                $this->setconsent($consent['consent']);
                 $this->skipRender();
             }
             return;
         }
         $this->selected = $this->cookieCategories;
-
     }
+    
     public function render()
     {
         return view('Azzarip::cookie-consent');
