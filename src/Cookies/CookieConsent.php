@@ -30,7 +30,7 @@ class CookieConsent extends Component
     {
         if(Cookie::has('cookie_consent')) {
             $cookie = Cookie::get('cookie_consent');
-            if($cookie['version'] == self::VERSION){
+            if(($cookie['version'] ?? null) === self::VERSION){
                 $this->setCookie(json_decode($cookie['consent']));
                 $this->skipRender();
             }
