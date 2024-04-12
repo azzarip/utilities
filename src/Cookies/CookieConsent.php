@@ -33,7 +33,7 @@ class CookieConsent extends Component
             $cookie = json_decode($cookie, true);
 
             if(($cookie['version'] ?? null) == self::VERSION){
-                $this->setconsent($cookie);
+                $this->setCookie($cookie);
                 $this->skipRender();
             }
             return;
