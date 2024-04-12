@@ -7,8 +7,9 @@ use Illuminate\Support\Facades\Cookie;
 
 class CookieConsent extends Component
 {
+    const VERSION = '1.0';
     public $cookieCategories = [
-        'ad_storage', 'ad_user_data', 'ad_personalization', 'analytics_storage', 'optional'
+        'optional', 'analytics', 'marketing'
     ];
     private $cookieValue = [];
     public $show = true;
@@ -28,8 +29,11 @@ class CookieConsent extends Component
     public function boot()
     {
         if(Cookie::has('cookie_consent')) {
-            $this->setCookie(Cookie::get('cookie_consent'));
-            $this->skipRender();
+            $cookie = Cookie::get('cookie_consent');
+            if($cookie['version'] == self::VERSION){
+                $this->setCookie(json_decode($cookie['consent']));
+                $this->skipRender();
+            }
             return;
         }
         $this->selected = $this->cookieCategories;
@@ -42,14 +46,17 @@ class CookieConsent extends Component
 
     private function setConsent()
     {
-        $value = array_merge(['essentials' => 'granted'], $this->cookieValue);
-        $this->setCookie(json_encode($value));
+        $this->setCookie(($this->cookieValue));
         $this->show = false;
         $this->dispatch('cookie_consented');
     }
 
     private function setCookie($content)
     {
-        Cookie::queue('cookie_consent', $content, 365*24*60, null, null, false, false);
+        Cookie::queue('cookie_consent', json_encode([
+            'timestamp' => now(),
+            'consent' => $content,
+            'version' => '1.0',
+        ]), 365*24*60, null, null, false, false);
     }
 }

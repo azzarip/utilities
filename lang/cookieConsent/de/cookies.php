@@ -19,26 +19,18 @@ return [
             'title' => 'Notwendige Cookies',
             'description' => 'Es gibt einige Cookies, die wir einsetzen müssen, damit bestimmte Webseiten funktionieren. Aus diesem Grund benötigen sie nicht Ihre Zustimmung.',
         ],
-        'analytics_storage' => [
-            'title' => 'Analytics Cookies',
+        'analytics' => [
+            'title' => 'Messung Cookies',
             'description' => 'Wir verwenden diese Cookies für interne Forschungszwecke, um herauszufinden, wie wir den Service für alle unsere Nutzer verbessern können. Diese Cookies bewerten, wie Sie mit unserer Website interagieren.',
         ],
         'optional' => [
-            'title' => 'Optionale Cookies',
+            'title' => 'Experience Cookies',
             'description' => 'Diese Cookies ermöglichen Funktionen, die Ihre Benutzererfahrung verbessern könnten, aber ihr Fehlen wird Ihre Fähigkeit, auf unserer Website zu surfen, nicht beeinträchtigen.',
         ],
-        'ad_storage' => [
-            'title' => 'Anzeigen-Speicherung',
+        'marketing' => [
+            'title' => 'Anzeigen Cookies',
             'description' => 'Diese Cookies werden verwendet, um Informationen über Ihre Anzeigeaktivitäten zu speichern, um relevantere Anzeigen bereitzustellen.',
-        ],
-        'ad_personalization' => [
-            'title' => 'Anzeigen-Personalisierung',
-            'description' => 'Diese Cookies werden verwendet, um Anzeigen basierend auf Ihren Interessen zu personalisieren und Ihnen eine individualisierte Werbeerfahrung zu bieten.',
-        ],
-        'ad_user_data' => [
-            'title' => 'Anzeigen-Benutzerdaten',
-            'description' => 'Diese Cookies sammeln Daten über Ihr Verhalten und Ihre Interessen, um die Anzeigenauslieferung und -effektivität zu verbessern.',
-        ],
+        ]
     ],
 
     'defaults' => [
