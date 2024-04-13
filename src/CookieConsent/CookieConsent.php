@@ -1,6 +1,6 @@
 <?php
 
-namespace Azzarip\Utilities\Cookies;
+namespace Azzarip\Utilities\CookieConsent;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Cookie;
@@ -40,7 +40,7 @@ class CookieConsent extends Component
         }
         $this->selected = $this->cookieCategories;
     }
-    
+
     public function render()
     {
         return view('Azzarip::cookie-consent');
