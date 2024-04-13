@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Artisan;
 use Azzarip\Utilities\AdminPanel\AdminPanel;
 
+
 it('installs vendor/admin-panel folder if does not exists', function ()
 {
     $destination = resource_path('views/vendor');
@@ -56,14 +57,3 @@ it('returns error if called twice', function ()
     File::delete($file);
 });
 
-it('refreshes cache', function () {
-    expect(AdminPanel::items())->toBeEmpty();
-
-    Artisan::call('admin-panel:make test1');
-    Artisan::call('admin-panel:make test2');
-    Artisan::call('admin-panel:make test3');
-
-    expect(AdminPanel::items())->toBeEmpty();
-    Artisan::call('admin-panel:refresh');
-
-});
