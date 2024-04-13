@@ -2,9 +2,12 @@
 
 namespace Azzarip\Utilities;
 
+use Livewire\Livewire;
 use Laravel\Fortify\Fortify;
 use Illuminate\Support\Facades\Config;
 use Spatie\LaravelPackageTools\Package;
+use Illuminate\Cookie\Middleware\EncryptCookies;
+use Azzarip\Utilities\CookieConsent\CookieConsent;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Azzarip\Utilities\AdminPanel\Commands\InstallCommand;
 use Azzarip\Utilities\AdminPanel\Commands\RefreshCommand;
@@ -16,6 +19,7 @@ class AzzaripServiceProvider extends PackageServiceProvider
     {
         Fortify::loginView(fn () => view('azzarip::login'));
         Config::set('fortify.domain', 'admin.' . env('DOMAIN_BASE'));
+        Config::set('fortify.home', 'admin.' . env('DOMAIN_BASE'));
     }
 
     public function configurePackage(Package $package): void
@@ -28,4 +32,10 @@ class AzzaripServiceProvider extends PackageServiceProvider
             ->hasTranslations()
             ->hasViews();
         }
+
+    public function packageBooted(): void
+    {
+        Livewire::component('cookie-consent', CookieConsent::class);
+        EncryptCookies::except('cookie_consent');
+    }
 }
