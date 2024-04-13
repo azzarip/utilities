@@ -17,13 +17,12 @@ class AdminPanel
 
     protected static function getItems(): array
     {
-        return [];
         $directory = resource_path('views/vendor/admin-panel');
         $files = File::files($directory);
 
         $routes = Collection::make($files)
             ->map(fn ($file) => str_replace('.blade.php', '', $file->getFilename()))
-            ->filter(fn ($file) => $file != 'main');
+            ->filter(fn ($file) => $file != 'home');
         $menu = $routes->map( fn($item) => ucwords(str_replace('-', ' ', $item)));
         return array_combine($routes->toArray(), $menu->toArray());
     }
