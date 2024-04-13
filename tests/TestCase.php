@@ -8,6 +8,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Azzarip\Utilities\AzzaripServiceProvider;
 use Laravel\Fortify\FortifyServiceProvider;
+use Livewire\LivewireServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -27,6 +28,7 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
+            LivewireServiceProvider::class,
             AzzaripServiceProvider::class,
             FortifyServiceProvider::class,
         ];
