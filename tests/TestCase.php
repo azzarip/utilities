@@ -45,8 +45,9 @@ class TestCase extends Orchestra
             $table->increments('id');
             $table->string('name');
             $table->string('email');
+            $table->timestamp('email_verified_at')->useCurrent();
         });
 
-        $this->user = User::create(['name' => 'Test User', 'email' => 'test@user.com']);
+        $this->user = User::create(['name' => 'Test User', 'email' => 'test@user.com', 'email_verified_at' => now()]);
     }
 }

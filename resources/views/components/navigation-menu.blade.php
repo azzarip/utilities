@@ -1,5 +1,5 @@
 <?php
-use Azzarip\AdminPanel\AdminPanel;
+use Azzarip\Utilities\AdminPanel\AdminPanel;
 $items = AdminPanel::items();
 ?>
 

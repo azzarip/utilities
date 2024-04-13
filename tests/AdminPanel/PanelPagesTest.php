@@ -14,5 +14,6 @@ it('redirects to login', function () {
 });
 
 it('404 on other pages', function () {
-    get('admin.' . env('DOMAIN_BASE') . '/other')->assertStatus(404);
+    $this->artisan('admin-panel:make test');
+    get('admin.' . env('DOMAIN_BASE') . '/test')->assertOk();
 });

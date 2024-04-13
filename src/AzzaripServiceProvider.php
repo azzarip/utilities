@@ -33,7 +33,7 @@ class AzzaripServiceProvider extends PackageServiceProvider
             ->hasViews();
         }
 
-    public function packageBooted(): void
+    public function bootingPackage(): void
     {
         Livewire::component('cookie-consent', CookieConsent::class);
         EncryptCookies::except('cookie_consent');

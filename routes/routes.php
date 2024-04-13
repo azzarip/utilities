@@ -10,11 +10,11 @@ Route::view('/cookie-policy', 'azzarip::cookie')->name('cookie-policy');
 //Route::post('/deploy', DeployController::class);
 
 Route::domain('admin.' . config('domains.base'))
-    ->middleware(['web', 'auth', AuthenticateSession::class])
+    ->middleware(['web', 'auth', 'verified', AuthenticateSession::class])
     ->group(function () {
-        Route::view('/', 'azzarip::home')->name('admin.dashboard');
+        Route::view('/', 'vendor.admin-panel.home')->name('admin.dashboard');
         Route::get('/{panel}', function (string $panel) {
-            return view('azzarip::' . $panel);
+            return view('vendor.admin-panel.' . $panel);
         })->whereIn('panel', array_keys(AdminPanel::items()))
         ->name('admin');
     });

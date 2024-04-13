@@ -3,8 +3,9 @@
 namespace Azzarip\Utilities\AdminPanel\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Contracts\Console\PromptsForMissingInput;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Contracts\Console\PromptsForMissingInput;
 
 class MakePanelCommand extends Command implements PromptsForMissingInput
 {
@@ -27,6 +28,7 @@ class MakePanelCommand extends Command implements PromptsForMissingInput
         File::copy($sourcePath, $destinationPath);
         $this->info("Panel {$name} created successfully.");
 
+        Artisan::call('admin-panel:refresh');
         return self::SUCCESS;
     }
 
