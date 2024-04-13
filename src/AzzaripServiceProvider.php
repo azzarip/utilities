@@ -2,20 +2,29 @@
 
 namespace Azzarip\Utilities;
 
-use Azzarip\Utilities\Cookies\CookieConsent;
-use Livewire\Livewire;
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Cookie\Middleware\EncryptCookies;
+use Azzarip\Utilities\AdminPanel\Commands\MakePanelCommand;
+use Laravel\Fortify\Fortify;
+use Illuminate\Support\Facades\Config;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Azzarip\Utilities\AdminPanel\Commands\InstallCommand;
 
-class AzzaripServiceProvider extends ServiceProvider
+class AzzaripServiceProvider extends PackageServiceProvider
 {
-    public function boot()
+    public function registeringPackage(): void
     {
-        $this->loadTranslationsFrom(__DIR__.'/../lang/cookieConsent', 'cookieConsent');
-        $this->loadViewsFrom(__DIR__.'/../resources/views/', 'Azzarip');
-        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-        Livewire::component('cookie-consent', CookieConsent::class);
-        EncryptCookies::except('cookie_consent');
-
+        Fortify::loginView(fn () => view('azzarip::login'));
+        Config::set('fortify.domain', 'admin.' . env('DOMAIN_BASE'));
     }
+
+    public function configurePackage(Package $package): void
+    {
+        $package
+            ->name('azzarip')
+            ->hasConfigFile('domains')
+            ->hasRoute('routes')
+            ->hasCommands([InstallCommand::class, MakePanelCommand::class])
+            ->hasTranslations()
+            ->hasViews();
+        }
 }
