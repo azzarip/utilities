@@ -10,10 +10,30 @@
         }
     ],
     "require": {
+        "php": "^8.2",
+        "illuminate/contracts": "^10.0||^11.0",
+        "laravel/fortify": "^1.21",
+        "spatie/laravel-package-tools": "^1.16"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.14",
+        "laravel/sanctum": "^4.0",
+        "livewire/livewire": "^3.3",
+        "nunomaduro/collision": "^8.1.1||^7.10.0",
+        "orchestra/testbench": "^9.0.0||^8.22.0",
+        "pestphp/pest": "^2.34",
+        "pestphp/pest-plugin-arch": "^2.7",
+        "pestphp/pest-plugin-laravel": "^2.3"
     },
     "autoload": {
         "psr-4": {
             "Azzarip\\Utilities\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Azzarip\\AdminPanel\\Tests\\": "tests/",
+            "Workbench\\App\\": "workbench/app/"
         }
     },
     "extra": {
@@ -24,6 +44,13 @@
             "providers": [
                 "Azzarip\\Utilities\\AzzaripServiceProvider"
             ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
         }
     }
 }
