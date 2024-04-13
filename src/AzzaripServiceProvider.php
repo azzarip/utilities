@@ -2,12 +2,13 @@
 
 namespace Azzarip\Utilities;
 
-use Azzarip\Utilities\AdminPanel\Commands\MakePanelCommand;
 use Laravel\Fortify\Fortify;
 use Illuminate\Support\Facades\Config;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Azzarip\Utilities\AdminPanel\Commands\InstallCommand;
+use Azzarip\Utilities\AdminPanel\Commands\RefreshCommand;
+use Azzarip\Utilities\AdminPanel\Commands\MakePanelCommand;
 
 class AzzaripServiceProvider extends PackageServiceProvider
 {
@@ -23,7 +24,7 @@ class AzzaripServiceProvider extends PackageServiceProvider
             ->name('azzarip')
             ->hasConfigFile('domains')
             ->hasRoute('routes')
-            ->hasCommands([InstallCommand::class, MakePanelCommand::class])
+            ->hasCommands([InstallCommand::class, MakePanelCommand::class, RefreshCommand::class])
             ->hasTranslations()
             ->hasViews();
         }
