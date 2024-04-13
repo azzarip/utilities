@@ -1,9 +1,9 @@
 <aside id="cookies-policy" x-data="{ 'expand': false }" x-show="$wire.show"
-    data-text="{{ json_encode(__('cookieConsent::cookies.details')) }}">
+    data-text="{{ json_encode(__('azzarip::cookies.details')) }}">
     <div class="fixed inset-0 flex items-center justify-center pointer-events-none z-20 bg-black/10">
         <div class="fixed bottom-0 w-full max-w-4xl px-4 pt-4 bg-white pointer-events-auto rounded-t-md">
             <div class="max-w-4xl mx-auto">
-                <h2 class="mb-1 font-semibold text-center font-xl">@lang('cookieConsent::cookies.title')</h2>
+                <h2 class="mb-1 font-semibold text-center font-xl">@lang('azzarip::cookies.title')</h2>
                 <div class="max-lg:text-xs xl:text-sm">
                     <p>Wir und ausgewählte Dritte verwenden Cookies oder ähnliche Technologien für technische Zwecke
                         und mit Ihrer Zustimmung auch für Erfahrungs-, Mess- und Marketingzwecke (mit
@@ -11,7 +11,7 @@
                         angegeben.</p>
                     <p>In Bezug auf Werbung können wir und ausgewählte Dritte präzise Standortdaten und
                         Gerätekennungen verwenden, um Informationen auf einem Gerät zu speichern und/oder darauf
-                        zuzugreifen und personenbezogene Daten wie Ihre Nutzungsdaten zu verarbeiten. Weitere Informationen finden Sie in unserer 
+                        zuzugreifen und personenbezogene Daten wie Ihre Nutzungsdaten zu verarbeiten. Weitere Informationen finden Sie in unserer
                         <a href="{{ route('cookie-policy') }}" class="inline-link">Cookie Policy</a></p>
                     <p class="max-lg:hidden">Sie können Ihre Zustimmung frei geben, ablehnen oder widerrufen,
                         jederzeit, indem Sie auf das Präferenzpanel zugreifen. Wenn Sie Ihre Zustimmung geben, gilt
@@ -36,7 +36,7 @@
             </div>
             <div class="flex flex-row justify-center w-full gap-4 py-2 align-bottom border-t cursor-pointer"
                 @click="expand = ! expand">
-                <span class="font-semibold text-center">@lang('cookieConsent::cookies.customize')</span>
+                <span class="font-semibold text-center">@lang('azzarip::cookies.customize')</span>
                 <x-heroicon-s-chevron-up class="w-6 svg" x-cloak x-show="expand" />
                 <x-heroicon-s-chevron-down class="w-6 svg" x-show="!expand" />
             </div>
@@ -47,7 +47,7 @@
 
                     <label for="essentials" class="relative block">
                         <div class="flex flex-row justify-between mx-auto">
-                            <span class="font-semibold lg:pl-5">@lang('cookieConsent::cookies.categories.essentials.title')</span>
+                            <span class="font-semibold lg:pl-5">@lang('azzarip::cookies.categories.essentials.title')</span>
                             <div class="flex items-center justify-center">
                                 <div class="block switch">
                                     <input type="checkbox" class="" checked disabled>
@@ -55,19 +55,19 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="mt-2">@lang('cookieConsent::cookies.categories.essentials.description')</p>
+                        <p class="mt-2">@lang('azzarip::cookies.categories.essentials.description')</p>
                     </label>
 
                     @foreach ($cookieCategories as $category)
 
                             <div class="flex flex-row justify-between mx-auto">
-                                <span class="font-semibold lg:pl-5">@lang('cookieConsent::cookies.categories.' . $category . '.title')</span>
+                                <span class="font-semibold lg:pl-5">@lang('azzarip::cookies.categories.' . $category . '.title')</span>
                                 <label class="switch">
                                     <input type="checkbox" wire:model='selected' value="{{ $category }}">
                                     <span class="slider round"></span>
                                 </label>
                             </div>
-                            <p class="mt-2">@lang('cookieConsent::cookies.categories.' . $category . '.description')</p>
+                            <p class="mt-2">@lang('azzarip::cookies.categories.' . $category . '.description')</p>
 
                     @endforeach
                     <button type="submit"
