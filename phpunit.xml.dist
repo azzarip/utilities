@@ -19,6 +19,9 @@
         <testsuite name="AdminPanel">
             <directory>tests/AdminPanel</directory>
         </testsuite>
+        <testsuite name="Helpers">
+            <directory>tests/Helpers</directory>
+        </testsuite>
     </testsuites>
     <!-- <coverage>
         <report>
