@@ -1,21 +1,32 @@
 <?php
 
 if (!function_exists('durl')) {
-    function durl($string, $domain = null)
+    function durl($string, $domainKey = null)
     {
-        if(empty($domain)) {
-            return url($string);
+
+        if(empty($domainKey)) {
+            $domain = request()->getHost();
+        } else {
+            if(empty(config('domains.' . $domainKey)))
+            {
+                throw new \Exception("Wrong domain in durl.");
+            }
+            $domain = config('domains.' . $domainKey);
         }
 
-        if(empty(config('domains.' . $domain)))
-        {
-            throw new \Exception("Wrong domain in durl.");
-        }
-
-        $url = config('domains.' . $domain) . '/' . ltrim($string, '/');
+        $url = $domain . '/' . ltrim($string, '/');
         if(request()->isSecure()) {
             return 'https://' . $url;
         }
             return 'http://' . $url;
     }
 }
+
+
+if (!function_exists('image')) {
+    function image($string)
+    {
+        return durl('storage/images/' . ltrim($string, '/'));
+    }
+}
+
