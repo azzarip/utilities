@@ -2,13 +2,13 @@
 
 namespace Azzarip\AdminPanel\Tests;
 
-use Illuminate\Support\Facades\Artisan;
-use Azzarip\AdminPanel\Tests\Models\User;
-use Illuminate\Database\Schema\Blueprint;
-use Orchestra\Testbench\TestCase as Orchestra;
-use Azzarip\Utilities\AzzaripServiceProvider;
-use Laravel\Fortify\FortifyServiceProvider;
+use App\Http\User;
 use Livewire\LivewireServiceProvider;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Database\Schema\Blueprint;
+use Laravel\Fortify\FortifyServiceProvider;
+use Azzarip\Utilities\AzzaripServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {

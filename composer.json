@@ -36,7 +36,8 @@
     "autoload-dev": {
         "psr-4": {
             "Azzarip\\AdminPanel\\Tests\\": "tests/",
-            "Workbench\\App\\": "workbench/app/"
+            "Workbench\\App\\": "workbench/app/",
+            "App\\Http\\": "tests/Classes/"
         }
     },
     "extra": {
