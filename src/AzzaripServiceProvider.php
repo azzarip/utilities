@@ -7,7 +7,7 @@ use Laravel\Fortify\Fortify;
 use Illuminate\Support\Facades\Config;
 use Spatie\LaravelPackageTools\Package;
 use Illuminate\Cookie\Middleware\EncryptCookies;
-use Azzarip\Utilities\CookieConsent\CookieConsent;
+use Azzarip\Utilities\CookieConsent\ConsentManager;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Azzarip\Utilities\AdminPanel\Commands\InstallCommand;
 use Azzarip\Utilities\AdminPanel\Commands\RefreshCommand;
@@ -35,7 +35,7 @@ class AzzaripServiceProvider extends PackageServiceProvider
 
     public function bootingPackage(): void
     {
-        Livewire::component('cookie-consent', CookieConsent::class);
+        Livewire::component('cookie-consent', ConsentManager::class);
         EncryptCookies::except('cookie_consent');
     }
 }
