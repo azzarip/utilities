@@ -7,6 +7,7 @@ if (!function_exists('durl')) {
     function durl($string, $domainKey = null, $data = [])
     {
 
+
         if(empty($domainKey)) {
             $domain = request()->getHost();
         } else {
@@ -19,11 +20,17 @@ if (!function_exists('durl')) {
 
             $cookieConsent = CookieConsent::get();
             if($cookieConsent) {
-                $data['cc'] = $cookieConsent;
+                $data['cc'] = $cookieConsent->toUrl();
             }
         }
 
-        $url = $domain . '/' . ltrim($string, '/');
+        $url = $domain;
+
+        $path = ltrim($string, '/');
+
+        if( ! empty($path)){
+            $url .= '/' . $path;
+        }
 
         if(!empty($data)){
             $url .= '?' . Arr::query($data);
@@ -43,4 +50,3 @@ if (!function_exists('image')) {
         return durl('storage/images/' . ltrim($string, '/'));
     }
 }
-
