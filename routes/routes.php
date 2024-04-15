@@ -1,9 +1,9 @@
 <?php
 
-use Azzarip\Utilities\AdminPanel\AdminPanel;
 use Illuminate\Support\Facades\Route;
+use Azzarip\Utilities\AdminPanel\AdminPanel;
 use Azzarip\Utilities\Http\Controllers\DeployController;
-use Azzarip\Utilities\CookieConsent\Middleware\AuthenticateSession;
+use Azzarip\Utilities\AdminPanel\Middleware\AuthenticateSession;
 
 Route::view('/privacy-policy', 'azzarip::privacy')->name('privacy-policy');
 Route::view('/cookie-policy', 'azzarip::cookie')->name('cookie-policy');

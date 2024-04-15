@@ -1,7 +1,10 @@
 <?php
 
+use Illuminate\Support\Arr;
+use Azzarip\Utilities\CookieConsent\CookieConsent;
+
 if (!function_exists('durl')) {
-    function durl($string, $domainKey = null)
+    function durl($string, $domainKey = null, $data = [])
     {
 
         if(empty($domainKey)) {
@@ -11,10 +14,21 @@ if (!function_exists('durl')) {
             {
                 throw new \Exception("Wrong domain in durl.");
             }
+
             $domain = config('domains.' . $domainKey);
+
+            $cookieConsent = CookieConsent::get();
+            if($cookieConsent) {
+                $data['cc'] = $cookieConsent;
+            }
         }
 
         $url = $domain . '/' . ltrim($string, '/');
+
+        if(!empty($data)){
+            $url .= '?' . Arr::query($data);
+        }
+
         if(request()->isSecure()) {
             return 'https://' . $url;
         }

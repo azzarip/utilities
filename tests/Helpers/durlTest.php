@@ -26,3 +26,4 @@ it('uses correct protocol', function () {
     $this->get('https://localhost');
     expect(durl($string, 'domain'))->toBe('https://domain.test/' . $string);
 });
+

@@ -42,9 +42,7 @@
             </div>
 
             <div x-show="expand" x-cloak id="cookies-policy-customize" class="mx-auto overflow-auto max-h-[450px]">
-                <form wire:submit="acceptCustomized" class="w-11/12 px-2 mx-auto mb-5 space-y-4 lg:px-5"
-                    x-data="{ 'checked' = [] }">
-
+                <form wire:submit="acceptSelected" class="w-11/12 px-2 mx-auto mb-5 space-y-4 lg:px-5">
                     <label for="essentials" class="relative block">
                         <div class="flex flex-row justify-between mx-auto">
                             <span class="font-semibold lg:pl-5">@lang('azzarip::cookies.categories.essentials.title')</span>

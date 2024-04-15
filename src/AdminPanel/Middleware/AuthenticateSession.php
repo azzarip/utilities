@@ -1,6 +1,6 @@
 <?php
 
-namespace Azzarip\Utilities\CookieConsent\Middleware;
+namespace Azzarip\Utilities\AdminPanel\Middleware;
 
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Session\Middleware\AuthenticateSession as BaseAuthenticateSession;
