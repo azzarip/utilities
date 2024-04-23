@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace Azzarip\Utilities\Http\Middleware;
 
 use Closure;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
