@@ -16,7 +16,6 @@ class English
      */
     public function handle(Request $request, Closure $next): Response
     {
-        Carbon::setToStringFormat('j F Y, H:i:s');
         app()->setLocale('en');
         return $next($request);
     }
