@@ -9,7 +9,7 @@ Route::view('/privacy-policy', 'azzarip::privacy')->name('privacy-policy');
 Route::view('/cookie-policy', 'azzarip::cookie')->name('cookie-policy');
 Route::post('/deploy', DeployController::class);
 
-Route::domain('admin.' . config('domains.base'))
+Route::domain(config('domains.admin'))
     ->middleware(['web', 'auth', 'verified', AuthenticateSession::class])
     ->group(function () {
         Route::view('/', 'vendor.admin-panel.home')->name('admin.dashboard');
