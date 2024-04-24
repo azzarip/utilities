@@ -7,7 +7,7 @@ class CHF {
     public $value;
 
     public static function chf($chf) {
-        return new CHF(round(100*chf));
+        return new CHF(round(100*$chf));
     }
 
     public static function int(int $rappe) {
@@ -23,25 +23,29 @@ class CHF {
         return new CHF($this->rappe + $that->rappe);
     }
 
+    public function toInt(): int
+    {
+        return $this->rappe;
+    }
     public function __toString(): string
     {
         return $this->getString();
     }
 
-    
+
     public function format(): string
     {
         if ($this->rappe == 0) {
             return '0.-';
         }
-        
+
         if ($this->rappe % 100 == 0) {
             return number_format($this->value, 0, '.', '\'') . '.-';
         }
-        
+
         return $this->getString();
     }
-    
+
     public function label(): string
     {
         if ($this->rappe == 0){
