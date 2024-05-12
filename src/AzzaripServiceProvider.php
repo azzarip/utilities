@@ -4,6 +4,8 @@ namespace Azzarip\Utilities;
 
 use Livewire\Livewire;
 use Laravel\Fortify\Fortify;
+use Azzarip\Utilities\Theme\Theme;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Config;
 use Spatie\LaravelPackageTools\Package;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -37,5 +39,6 @@ class AzzaripServiceProvider extends PackageServiceProvider
     {
         Livewire::component('cookie-consent', ConsentManager::class);
         EncryptCookies::except('cookie_consent');
+        Blade::component('theme', Theme::class);
     }
 }
