@@ -1,11 +1,15 @@
-<div class="flex items-stretch justify-between content-baseline">
-    @yield('header')
-    <div class="flex justify-center w-1/2 mt-3 max-xl:hidden">
+<div class="flex items-stretch justify-between content-baseline {{ $headerClass }}">
+    <div class="xl:w-1/4">
+        @yield('header')
+    </div>
+    <div class="flex {{ $alignmentCenter ? 'w-1/2 justify-center' : 'w-3/4 justify-end' }} mt-3 max-xl:hidden">
         <nav>
             @yield('big-menu')
         </nav>
     </div>
+    @if($alignmentCenter)
     <div class="w-1/4 max-xl:hidden"></div>
+    @endif
 
     <div class="flex justify-between pt-2 xl:hidden">
         <div>

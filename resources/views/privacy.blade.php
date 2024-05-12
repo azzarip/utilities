@@ -18,7 +18,7 @@
         margin-top: 12px;
     }
 </style>
-<div class="text-lg text-y text">
+<div class="text-lg text-y text mt-10">
 <h1 class="h1">Privacy Policy von Pizza Azzari</h1>
 <p class="mb-8">Diese Datenschutzerklärung für Pizza Azzari ("wir," "uns," oder "unser") beschreibt, wie und warum
             wir möglicherweise Ihre Informationen erfassen, speichern, verwenden und/oder teilen ("verarbeiten"), wenn Sie

@@ -18,7 +18,7 @@
         margin-top: 12px;
     }
 </style>
-<div class="text-lg text-y text">
+<div class="text-lg text-y text mt-10">
 <h1 class="h1">Cookie Policy von Pizza Azzari</h1>
 <p>Diese Cookie-Richtlinie erklärt, wie Pizza Azzari ("Unternehmen", "wir", "uns" und "unser") Cookies und ähnliche Technologien verwendet, um Sie zu erkennen,
 wenn Sie unsere Website unter <a href="{{ Request::root() }}"
