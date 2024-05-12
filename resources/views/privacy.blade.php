@@ -1,6 +1,10 @@
-@extends('layouts.3cols')
+@extends('azzarip::base')
 
-@section('main')
+@section('body')
+<div class="flex flex-row flex-1">
+    <div class="w-[calc(50%-384px)] max-lg:hidden"></div>
+    <main class="container flex-1 table text-xl">
+
 <?php use Illuminate\Support\Facades\Request; ?>
 <style>
     .text a {
@@ -279,5 +283,8 @@ uns bitte unter <a href="mailto:marco.azzari@pizzazero.ch"
 <p>Basierend auf den geltenden Gesetzen Ihres Landes haben Sie möglicherweise das Recht, Zugang zu den personenbezogenen Daten zu verlangen, die wir von Ihnen erheben, diese Informationen zu ändern oder zu löschen. Um eine Überprüfung, Aktualisierung oder Löschung Ihrer personenbezogenen Daten zu beantragen, füllen Sie bitte ein Datenzugriffsanfrageformular aus und senden Sie es ein.</p>
 
     <p class="mb-4">aktualisiert am 30. Januar 2024</p>
+</div>
+</main>
+<div class="w-[calc(50%-384px)] max-lg:hidden"></div>
 </div>
 @endsection

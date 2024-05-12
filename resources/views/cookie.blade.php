@@ -1,6 +1,10 @@
-@extends('layouts.3cols')
+@extends('azzarip::base')
 
-@section('main')
+@section('body')
+<div class="flex flex-row flex-1">
+    <div class="w-[calc(50%-384px)] max-lg:hidden"></div>
+    <main class="container flex-1 table text-xl">
+
 <?php use Illuminate\Support\Facades\Request; ?>
 <style>
     .text a {
@@ -142,4 +146,8 @@ wie Sie Cookies in den beliebtesten Browsern verwalten können: </p>
     <p class="mb-12">Aktualisiert am am 8. Februar 2024</p>
 </div>
 <div class="h-12"></div>
+</div>
+</main>
+<div class="w-[calc(50%-384px)] max-lg:hidden"></div>
+</div>
 @endsection
