@@ -27,9 +27,9 @@
     <x-tagmanager-body />
 
     <div class="flex flex-col justify-between min-h-screen">
-        <x-site>
+    <x-azzarip:theme>
         @yield('body')
-        </x-site>
+    </x-azzarip:theme>
     </div>
 
     @yield('scripts')
