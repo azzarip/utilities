@@ -17,20 +17,16 @@ use Azzarip\Utilities\AdminPanel\Commands\MakePanelCommand;
 
 class AzzaripServiceProvider extends PackageServiceProvider
 {
-    public function registeringPackage(): void
-    {
-        Fortify::loginView(fn () => view('azzarip::login'));
-        Config::set('fortify.domain', env('DOMAIN_ADMIN'));
-        Config::set('fortify.home', 'http://' . env('DOMAIN_ADMIN'));
-    }
 
     public function configurePackage(Package $package): void
     {
         $package
             ->name('azzarip')
             ->hasConfigFile('domains')
+            ->hasConfigFile('azzari')
+            ->hasConfigFile('utilities')
             ->hasRoute('routes')
-            ->hasCommands([InstallCommand::class, MakePanelCommand::class, RefreshCommand::class])
+            ->hasCommands($this->getCommands())
             ->hasTranslations()
             ->hasViews();
         }
@@ -40,5 +36,21 @@ class AzzaripServiceProvider extends PackageServiceProvider
         Livewire::component('cookie-consent', ConsentManager::class);
         EncryptCookies::except('cookie_consent');
         Blade::component('theme', Theme::class);
+    }
+
+    public function registeringPackage(): void
+    {
+        Fortify::loginView(fn () => view('azzarip::login'));
+        Config::set('fortify.domain', env('DOMAIN_ADMIN'));
+        Config::set('fortify.home', 'http://' . env('DOMAIN_ADMIN'));
+    }
+
+    protected function getCommands(): array
+    {
+        return [
+            InstallCommand::class,
+            MakePanelCommand::class,
+            RefreshCommand::class
+        ];
     }
 }

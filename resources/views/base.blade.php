@@ -32,6 +32,9 @@
     </x-theme>
     </div>
 
+    @if(config('utilities.cookie-consent'))
+        @livewire('cookie-consent')
+    @endif
     @yield('scripts')
     @livewireScripts
 </body>
