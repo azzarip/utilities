@@ -2,7 +2,7 @@
     <div class="xl:w-1/4">
         @yield('header')
     </div>
-    <?php $alignmentCenter = $alignmentCenter ?? true ?>
+    <?php $alignmentCenter = $alignmentCenter ?? false ?>
     <div class="flex {{ $alignmentCenter  ? 'w-1/2 justify-center' : 'w-3/4 justify-end' }} mt-3 max-xl:hidden">
         <nav>
             @yield('big-menu')
