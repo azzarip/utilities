@@ -11,7 +11,7 @@
     @if (isset($seo))
         {!!  seo($seo) !!}
     @else
-        <title>{{ config('seo.sitename') }}</title>
+        <title>{{ config('seo.site_name') }}</title>
         <meta name="robots" content="noindex">
         <meta name="robots" content="nofollow">
         <meta name="robots" content="noarchive">
