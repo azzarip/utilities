@@ -1,4 +1,4 @@
-@props(['bg' => 'bg-grey-50/50'])
+@props(['bg' => 'bg-grey-50/50', 'nav' => true])
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -27,7 +27,7 @@
     <x-tagmanager-body />
 
     <div class="flex flex-col justify-between min-h-screen">
-    <x-theme>
+    <x-theme :$nav >
         @yield('body')
     </x-theme>
     </div>
