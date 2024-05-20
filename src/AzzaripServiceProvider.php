@@ -11,9 +11,8 @@ use Spatie\LaravelPackageTools\Package;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Azzarip\Utilities\CookieConsent\ConsentManager;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Azzarip\Utilities\AdminPanel\Commands\InstallCommand;
-use Azzarip\Utilities\AdminPanel\Commands\RefreshCommand;
-use Azzarip\Utilities\AdminPanel\Commands\MakePanelCommand;
+use Azzarip\Utilities\AdminPanel\Commands;
+use Azzarip\Utilities\Commands\GenerateSitemap;
 
 class AzzaripServiceProvider extends PackageServiceProvider
 {
@@ -23,7 +22,6 @@ class AzzaripServiceProvider extends PackageServiceProvider
         $package
             ->name('azzarip')
             ->hasConfigFile('domains')
-            ->hasConfigFile('azzari')
             ->hasConfigFile('utilities')
             ->hasRoute('routes')
             ->hasCommands($this->getCommands())
@@ -48,9 +46,10 @@ class AzzaripServiceProvider extends PackageServiceProvider
     protected function getCommands(): array
     {
         return [
-            InstallCommand::class,
-            MakePanelCommand::class,
-            RefreshCommand::class
+            Commands\InstallCommand::class,
+            Commands\MakePanelCommand::class,
+            Commands\RefreshCommand::class,
+            GenerateSitemap::class,
         ];
     }
 }
