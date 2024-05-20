@@ -7,9 +7,11 @@ use Illuminate\Support\Facades\Cookie;
 class CookieConsent
 {
     const VERSION = '1.0';
+
     const CATEGORIES = [
-        'optional', 'analytics', 'marketing'
+        'optional', 'analytics', 'marketing',
     ];
+
     protected $cookieValue = [];
 
     public function __construct($selected)
@@ -24,7 +26,8 @@ class CookieConsent
             'consent' => $this->cookieValue,
             'version' => self::VERSION,
         ];
-        Cookie::queue('cookie_consent', json_encode($cookie), 365*24*60, null, null, false, false);
+        Cookie::queue('cookie_consent', json_encode($cookie), 365 * 24 * 60, null, null, false, false);
+
         return $this;
     }
 
@@ -45,14 +48,16 @@ class CookieConsent
 
     public static function get(): ?self
     {
-        if(!Cookie::has('cookie_consent')) {
+        if (! Cookie::has('cookie_consent')) {
             return self::getFromUrl();
         }
 
         $consent = Cookie::get('cookie_consent');
         $consent = json_decode($consent, true);
 
-        if(($consent['version'] ?? null) != self::VERSION){ return null; }
+        if (($consent['version'] ?? null) != self::VERSION) {
+            return null;
+        }
 
         $selected = array_keys($consent['consent']);
 
@@ -62,31 +67,36 @@ class CookieConsent
     public function toUrl(): string
     {
         $value = '';
-        foreach(self::CATEGORIES as $category){
-        if(array_key_exists($category, $this->cookieValue)){
+        foreach (self::CATEGORIES as $category) {
+            if (array_key_exists($category, $this->cookieValue)) {
                 $value .= 1;
             } else {
                 $value .= 0;
             }
         }
+
         return $value;
     }
 
     protected static function getFromUrl(): ?self
     {
-        if (!request()->has('cc')) { return null; }
+        if (! request()->has('cc')) {
+            return null;
+        }
 
         $consent = request()->query('cc');
 
-        $size = sizeof(self::CATEGORIES);
+        $size = count(self::CATEGORIES);
         $pattern = "/^(?:[01]{{$size}})$/";
 
-        if(! preg_match($pattern, $consent)) {return null;}
+        if (! preg_match($pattern, $consent)) {
+            return null;
+        }
 
         $selected = [];
         for ($i = 0; $i < $size; $i++) {
-            $category =  (bool)$consent[$i];
-            if($category){
+            $category = (bool) $consent[$i];
+            if ($category) {
                 $selected[] = self::CATEGORIES[$i];
             }
         }

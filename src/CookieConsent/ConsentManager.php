@@ -3,19 +3,25 @@
 namespace Azzarip\Utilities\CookieConsent;
 
 use Livewire\Component;
-use Azzarip\Utilities\CookieConsent\CookieConsent;
 
 class ConsentManager extends Component
 {
     public $show = true;
+
     public $selected = [];
-    public function acceptAll(){
+
+    public function acceptAll()
+    {
         $this->setConsent(CookieConsent::acceptAll());
     }
-    public function acceptSelected(){
+
+    public function acceptSelected()
+    {
         $this->setConsent(CookieConsent::accept($this->selected));
     }
-    public function acceptEssentials(){
+
+    public function acceptEssentials()
+    {
         $this->setConsent(CookieConsent::acceptEssentials());
     }
 
@@ -23,7 +29,7 @@ class ConsentManager extends Component
     {
         $cookieConsent = CookieConsent::get();
 
-        if($cookieConsent) {
+        if ($cookieConsent) {
             $this->skipRender();
         }
     }
@@ -43,5 +49,4 @@ class ConsentManager extends Component
         $this->show = false;
         $this->dispatch('cookie_consented');
     }
-
 }

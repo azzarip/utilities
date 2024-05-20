@@ -2,9 +2,8 @@
 
 namespace Azzarip\Utilities\CHF;
 
-use Azzarip\Utilities\CHF\CHF;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
+use Illuminate\Database\Eloquent\Model;
 
 class CHFCast implements CastsAttributes
 {
@@ -32,7 +31,7 @@ class CHFCast implements CastsAttributes
         if ($value === null) {
             return null;
         }
-        
+
         return $value;
     }
 }

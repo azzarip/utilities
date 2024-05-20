@@ -20,6 +20,7 @@ class AuthorizeAzzariApi
         if ($username != config('azzari.response.username') || $password != config('azzari.response.password')) {
             return response()->json(['error' => 'Authentication Error.'], 401);
         }
+
         return $next($request);
     }
 }

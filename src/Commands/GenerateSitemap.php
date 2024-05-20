@@ -1,8 +1,9 @@
 <?php
+
 namespace Azzarip\Utilities\Commands;
 
-use Spatie\Sitemap\Sitemap;
 use Illuminate\Console\Command;
+use Spatie\Sitemap\Sitemap;
 
 class GenerateSitemap extends Command
 {
@@ -12,12 +13,14 @@ class GenerateSitemap extends Command
      * @var string
      */
     protected $signature = 'sitemap:generate';
+
     /**
      * The console command description.
      *
      * @var string
      */
     protected $description = 'Generate the XML Sitemap for each domain';
+
     /**
      * Execute the console command.
      *
@@ -25,24 +28,24 @@ class GenerateSitemap extends Command
      */
     public function handle()
     {
-        foreach(config('domains') as $key => $domain){
+        foreach (config('domains') as $key => $domain) {
             dd(config('domains'));
-            $file = base_path('content/sitemaps/' . $key . '.php');
-            if (!file_exists($file)) {
+            $file = base_path('content/sitemaps/'.$key.'.php');
+            if (! file_exists($file)) {
                 continue;
             }
 
-            $this->info('Sitemap for: ' . $domain);
+            $this->info('Sitemap for: '.$domain);
 
             $sitemap = Sitemap::create();
             $entries = include $file;
-            foreach($entries as $entry)
-            {
+            foreach ($entries as $entry) {
                 $entry->setUrl(durl($entry->url, $key));
                 $sitemap->add($entry);
             }
             $sitemap->writeToFile(public_path("/sitemaps/$key.xml"));
         }
+
         return self::SUCCESS;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 return [
     'title' => 'Wir nutzen Cookies',
     'intro' => 'Diese Website verwendet Cookies, um die Benutzerfreundlichkeit zu verbessern.',
@@ -30,7 +31,7 @@ return [
         'marketing' => [
             'title' => 'Anzeigen Cookies',
             'description' => 'Diese Cookies werden verwendet, um Informationen über Ihre Anzeigeaktivitäten zu speichern, um relevantere Anzeigen bereitzustellen.',
-        ]
+        ],
     ],
 
     'defaults' => [

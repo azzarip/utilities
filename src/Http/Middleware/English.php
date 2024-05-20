@@ -16,6 +16,7 @@ class English
     public function handle(Request $request, Closure $next): Response
     {
         app()->setLocale('en');
+
         return $next($request);
     }
 }

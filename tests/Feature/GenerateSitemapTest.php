@@ -1,13 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Artisan;
-use Azzarip\Utilities\AdminPanel\AdminPanel;
+use Illuminate\Support\Facades\File;
 
-
-
-it('creates a sitemap in public folder', function ()
-{
+it('creates a sitemap in public folder', function () {
     config()->set('domains.base', 'localhost');
     $filepath = base_path('content');
     File::makeDirectory($filepath, 0755, true, true);
@@ -15,9 +11,8 @@ it('creates a sitemap in public folder', function ()
     $filepath .= 'sitemaps';
     File::makeDirectory($filepath, 0755, true, true);
 
-
     $content = '<?php return [];';
-    file_put_contents($filepath . 'base.php', $content);
+    file_put_contents($filepath.'base.php', $content);
 
     File::makeDirectory(public_path('sitemaps'), 0755, true, true);
     Artisan::call('sitemap:generate');

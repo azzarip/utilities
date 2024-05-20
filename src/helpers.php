@@ -1,25 +1,23 @@
 <?php
 
-use Illuminate\Support\Arr;
 use Azzarip\Utilities\CookieConsent\CookieConsent;
+use Illuminate\Support\Arr;
 
-if (!function_exists('durl')) {
+if (! function_exists('durl')) {
     function durl($string, $domainKey = null, $data = [])
     {
 
-
-        if(empty($domainKey)) {
+        if (empty($domainKey)) {
             $domain = request()->getHost();
         } else {
-            if(empty(config('domains.' . $domainKey)))
-            {
-                throw new \Exception("Wrong domain in durl.");
+            if (empty(config('domains.'.$domainKey))) {
+                throw new \Exception('Wrong domain in durl.');
             }
 
-            $domain = config('domains.' . $domainKey);
+            $domain = config('domains.'.$domainKey);
 
             $cookieConsent = CookieConsent::get();
-            if($cookieConsent) {
+            if ($cookieConsent) {
                 $data['cc'] = $cookieConsent->toUrl();
             }
         }
@@ -28,25 +26,25 @@ if (!function_exists('durl')) {
 
         $path = ltrim($string, '/');
 
-        if( ! empty($path)){
-            $url .= '/' . $path;
+        if (! empty($path)) {
+            $url .= '/'.$path;
         }
 
-        if(!empty($data)){
-            $url .= '?' . Arr::query($data);
+        if (! empty($data)) {
+            $url .= '?'.Arr::query($data);
         }
 
-        if(request()->isSecure()) {
-            return 'https://' . $url;
+        if (request()->isSecure()) {
+            return 'https://'.$url;
         }
-            return 'http://' . $url;
+
+        return 'http://'.$url;
     }
 }
 
-
-if (!function_exists('image')) {
+if (! function_exists('image')) {
     function image($string)
     {
-        return durl('storage/images/' . ltrim($string, '/'));
+        return durl('storage/images/'.ltrim($string, '/'));
     }
 }

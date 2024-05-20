@@ -1,12 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Artisan;
-use Azzarip\Utilities\AdminPanel\AdminPanel;
+use Illuminate\Support\Facades\File;
 
-
-it('installs vendor/admin-panel folder if does not exists', function ()
-{
+it('installs vendor/admin-panel folder if does not exists', function () {
     $destination = resource_path('views/vendor');
     if (File::isDirectory($destination)) {
         File::deleteDirectory($destination);
@@ -19,8 +16,7 @@ it('installs vendor/admin-panel folder if does not exists', function ()
     expect(File::isDirectory($destination))->toBeTrue();
 });
 
-it('creates the home blade', function ()
-{
+it('creates the home blade', function () {
     $file = resource_path('views/vendor/admin-panel/home.blade.php');
 
     if (File::exists($file)) {
@@ -32,8 +28,7 @@ it('creates the home blade', function ()
     expect(File::exists($file))->toBeTrue();
 });
 
-it('creates a new panel blade', function ()
-{
+it('creates a new panel blade', function () {
     $file = resource_path('views/vendor/admin-panel/test.blade.php');
 
     if (File::exists($file)) {
@@ -46,8 +41,7 @@ it('creates a new panel blade', function ()
     File::delete($file);
 });
 
-it('returns error if called twice', function ()
-{
+it('returns error if called twice', function () {
     Artisan::call('admin-panel:make test');
     $response = Artisan::call('admin-panel:make test');
 
@@ -56,4 +50,3 @@ it('returns error if called twice', function ()
     $file = resource_path('views/vendor/admin-panel/test.blade.php');
     File::delete($file);
 });
-
