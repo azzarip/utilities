@@ -16,11 +16,8 @@
     backupStaticProperties="false"
 >
     <testsuites>
-        <testsuite name="AdminPanel">
-            <directory>tests/AdminPanel</directory>
-        </testsuite>
-        <testsuite name="Helpers">
-            <directory>tests/Helpers</directory>
+        <testsuite name="Feature">
+            <directory>tests/Feature</directory>
         </testsuite>
     </testsuites>
     <!-- <coverage>
