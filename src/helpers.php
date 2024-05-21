@@ -54,12 +54,14 @@ if (! function_exists('site')) {
     {
         $key = request()->get('domainKey');
 
-        if(empty($key)) return;
-
-        if(empty($string)) {
-            return config('sites. ' . $key);
+        if (empty($key)) {
+            return;
         }
 
-        return config('sites. ' . $key . '.' . $string);
+        if (empty($string)) {
+            return config('sites. '.$key);
+        }
+
+        return config('sites. '.$key.'.'.$string);
     }
 }
