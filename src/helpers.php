@@ -48,3 +48,18 @@ if (! function_exists('image')) {
         return durl('storage/images/'.ltrim($string, '/'));
     }
 }
+
+if (! function_exists('site')) {
+    function site($string)
+    {
+        $key = request()->get('domainKey');
+
+        if(empty($key)) return;
+
+        if(empty($string)) {
+            return config('sites. ' . $key);
+        }
+
+        return config('sites. ' . $key . '.' . $string);
+    }
+}

@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class AuthorizeAzzariApi
+class DomainKey
 {
     /**
      * Handle an incoming request.
@@ -15,11 +15,11 @@ class AuthorizeAzzariApi
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $username = $request->getUser();
-        $password = $request->getPassword();
-        if ($username != config('utilities.response.username') || $password != config('utilities.response.password')) {
-            return response()->json(['error' => 'Authentication Error.'], 401);
-        }
+        $domain = request()->getHost();
+
+        $key = array_search($domain, config('domains'));
+
+        $request->attributes->add(['domainKey' => $key]);
 
         return $next($request);
     }

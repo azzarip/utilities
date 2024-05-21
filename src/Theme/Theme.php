@@ -10,9 +10,7 @@ class Theme extends Component
 {
     public function render(): View|Closure|string
     {
-        $domain = request()->getHost();
-
-        $key = array_search($domain, config('domains'));
+        $key = request()->get('domainKey');
 
         return view('components.sites.'.$key);
     }

@@ -11,7 +11,7 @@
     @if (isset($seo))
         {!!  seo($seo) !!}
     @else
-        <title>{{ config('app.name') }}</title>
+        <title>{{ config('sites.' . request()->get('domainKey') . '.fonts') }}</title>
         <meta name="robots" content="noindex">
         <meta name="robots" content="nofollow">
         <meta name="robots" content="noarchive">
@@ -21,6 +21,11 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
     @googlefonts
+
+    @foreach(config('sites.' . request()->get('domainKey') . '.fonts') as $font)
+    @googlefonts($font)
+    @endforeach
+
 </head>
 
 <body class="{{ $bg }}">
