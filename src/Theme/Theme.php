@@ -12,6 +12,6 @@ class Theme extends Component
     {
         $key = request()->get('domainKey');
 
-        return view('themes.'.$key);
+        return view('components.themes.'.$key);
     }
 }
