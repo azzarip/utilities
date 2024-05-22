@@ -30,7 +30,7 @@ class GenerateSitemap extends Command
     {
         foreach (config('domains') as $key => $domain) {
 
-            $file = base_path('content/sitemaps/'.$key.'.php');
+            $file = resource_path('sitemaps/'.$key.'.php');
             if (! file_exists($file)) {
                 continue;
             }
@@ -43,7 +43,7 @@ class GenerateSitemap extends Command
                 $entry->setUrl(durl($entry->url, $key));
                 $sitemap->add($entry);
             }
-            $sitemap->writeToFile(public_path("sitemaps/$key.xml"));
+            $sitemap->writeToFile(storage_path("app/sitemaps/$key.xml"));
         }
 
         return self::SUCCESS;
