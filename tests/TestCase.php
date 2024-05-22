@@ -37,7 +37,10 @@ class TestCase extends Orchestra
     public function getEnvironmentSetUp($app)
     {
         config()->set('database.default', 'testing');
-        config()->set('domains.base', 'localhost');
+
+        config()->set('domains', require __DIR__ . '/../config/domains.php');
+        config()->set('utilities', require __DIR__ . '/../config/utilities.php');
+        config()->set('sites', require __DIR__ . '/../config/sites.php');
     }
 
     protected function setUpDatabase($app)

@@ -4,6 +4,6 @@ return [
 
     'base' => [
         'fonts' => ['playfair'],
-        'name' => 'Team Dreams',
+        'name' => 'Site Name',
     ],
 ];

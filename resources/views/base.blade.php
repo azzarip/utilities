@@ -23,7 +23,7 @@
     @googlefonts
 
     @foreach(site('fonts') as $font)
-    @googlefonts($font)
+    @if($font) @googlefonts($font) @endif
     @endforeach
 
 </head>

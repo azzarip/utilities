@@ -50,7 +50,7 @@ if (! function_exists('image')) {
 }
 
 if (! function_exists('site')) {
-    function site($string)
+    function site($string = null)
     {
         $key = request()->get('domainKey');
 
@@ -58,10 +58,12 @@ if (! function_exists('site')) {
             return;
         }
 
+        $config = array_merge(config('sites.'.$key), ['key' => $key]);
+
         if (empty($string)) {
-            return config('sites. '.$key);
+            return $config;
         }
 
-        return config('sites. '.$key.'.'.$string);
+        return array_key_exists($string, $config) ? $config[$string] : null;
     }
 }
