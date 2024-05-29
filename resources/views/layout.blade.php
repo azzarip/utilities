@@ -1,6 +1,7 @@
 @props(['nav' => true, 'alignmentCenter' => false])
 
 @if($nav)
+<header>
 <div class="flex items-stretch justify-between content-baseline {{ $headerClass ?? null }}">
     <div class="xl:w-1/4">
         @yield('header')
@@ -37,6 +38,7 @@
         </div>
     </div>
 </div>
+</header>
 @endif
 
 {{ $slot }}
