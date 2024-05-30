@@ -55,9 +55,8 @@ if (! function_exists('site')) {
         $key = request()->get('domainKey');
 
         if (empty($key)) {
-            return;
+            return [];
         }
-
 
         $config = config('domains.'.$key);
         $config['key'] = $key;
@@ -66,6 +65,6 @@ if (! function_exists('site')) {
             return $config;
         }
 
-        return array_key_exists($string, $config) ? $config[$string] : null;
+        return array_key_exists($string, $config) ? $config[$string] : [];
     }
 }

@@ -23,7 +23,7 @@ test('name returns name array', function () {
     expect($name)->toBe('Site Name');
 });
 
-test('other returns null', function () {
+test('other returns []', function () {
     $other = site('other');
-    expect($other)->toBeNull();
+    expect($other)->toBe([]);
 });
