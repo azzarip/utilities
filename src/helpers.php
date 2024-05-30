@@ -58,7 +58,9 @@ if (! function_exists('site')) {
             return;
         }
 
-        $config = array_merge(config('sites.'.$key), ['key' => $key]);
+
+        $config = config('domains.'.$key);
+        $config['key'] = $key;
 
         if (empty($string)) {
             return $config;

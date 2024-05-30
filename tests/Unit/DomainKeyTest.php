@@ -9,7 +9,7 @@ test('it adds domain key to request', function() {
 
     $next = function ($request) {
         expect($request->get('domainKey'))->toBe('base');
-        return response();
+        return response(200);
     };
 
     (new DomainKey())->handle($request, $next);

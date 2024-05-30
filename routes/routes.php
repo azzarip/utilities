@@ -11,7 +11,7 @@ Route::view('/privacy-policy', 'azzarip::privacy')->name('privacy-policy');
 Route::view('/cookie-policy', 'azzarip::cookie')->name('cookie-policy');
 Route::post('/deploy', DeployController::class);
 
-Route::domain(config('domains.admin'))
+Route::domain(config('domains.admin.url'))
     ->middleware(['web', 'auth', 'verified', AuthenticateSession::class])
     ->group(function () {
         Route::view('/', 'vendor.admin-panel.home')->name('admin.dashboard');

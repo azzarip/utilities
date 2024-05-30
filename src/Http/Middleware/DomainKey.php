@@ -17,9 +17,12 @@ class DomainKey
     {
         $domain = request()->getHost();
 
-        $key = array_search($domain, config('domains'));
-
-        $request->attributes->add(['domainKey' => $key]);
+        foreach (config('domains') as $key => $value) {
+            if($value['url'] == $domain) {
+                $request->attributes->add(['domainKey' => $key]);
+                return $next($request);
+            }
+        }
 
         return $next($request);
     }
