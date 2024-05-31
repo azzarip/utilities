@@ -35,7 +35,7 @@ class GenerateSitemap extends Command
                 continue;
             }
 
-            $this->info('Sitemap for: '.$domain);
+            $this->info('Sitemap for: '.$key);
 
             $sitemap = Sitemap::create();
             $entries = include $file;

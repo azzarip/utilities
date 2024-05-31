@@ -8,13 +8,14 @@ if (! function_exists('durl')) {
     {
 
         if (empty($domainKey)) {
-            $domain = request()->getHost();
+            $domainKey = request()->get('domainKey');
         } else {
+
             if (empty(config('domains.'.$domainKey))) {
                 throw new \Exception('Wrong domain in durl.');
             }
 
-            $domain = config('domains.'.$domainKey);
+            $domain = config('domains.'.$domainKey.'.url');
 
             $cookieConsent = CookieConsent::get();
             if ($cookieConsent) {
