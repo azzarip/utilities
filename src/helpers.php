@@ -15,15 +15,13 @@ if (! function_exists('durl')) {
                 throw new \Exception('Wrong domain in durl.');
             }
 
-            $domain = config('domains.'.$domainKey.'.url');
-
             $cookieConsent = CookieConsent::get();
             if ($cookieConsent) {
                 $data['cc'] = $cookieConsent->toUrl();
             }
         }
 
-        $url = $domain;
+        $url = config('domains.'.$domainKey.'.url');
 
         $path = ltrim($string, '/');
 
