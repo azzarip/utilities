@@ -44,7 +44,7 @@ if (! function_exists('durl')) {
 if (! function_exists('image')) {
     function image($string)
     {
-        return durl('storage/images/'.ltrim($string, '/'));
+        return url('storage/images/'.ltrim($string, '/'));
     }
 }
 
