@@ -18,7 +18,7 @@ class MakePanelCommand extends Command implements PromptsForMissingInput
         $name = $this->argument('name');
 
         $sourcePath = __DIR__.'/../../../stubs/admin-panel.blade.php';
-        $destinationPath = resource_path("views/vendor/admin-panel/{$name}.blade.php");
+        $destinationPath = resource_path("views/admin-panel/{$name}.blade.php");
 
         if (File::exists($destinationPath)) {
             $this->error("Panel {$name} already exists.");

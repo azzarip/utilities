@@ -14,10 +14,10 @@ Route::post('/deploy', DeployController::class);
 Route::domain(config('domains.admin.url'))
     ->middleware(['web', 'auth', 'verified', AuthenticateSession::class])
     ->group(function () {
-        Route::view('/', 'vendor.admin-panel.home')->name('admin.dashboard');
+        Route::view('/', 'admin-panel.home')->name('admin.dashboard');
         if (! empty(AdminPanel::items())) {
             Route::get('/{panel}', function (string $panel) {
-                return view('vendor.admin-panel.'.$panel);
+                return view('admin-panel.'.$panel);
             })->whereIn('panel', array_keys(AdminPanel::items()))
                 ->name('admin');
         }

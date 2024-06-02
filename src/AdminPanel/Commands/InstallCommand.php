@@ -14,11 +14,7 @@ class InstallCommand extends Command
 
     public function handle(): int
     {
-        $destination = resource_path('views/vendor');
-        if (! File::isDirectory($destination)) {
-            File::makeDirectory($destination, 0755, true, true);
-        }
-        $destination .= '/admin-panel';
+        $destination = resource_path('views/admin-panel');
         if (! File::isDirectory($destination)) {
             File::makeDirectory($destination, 0755, true, true);
         }

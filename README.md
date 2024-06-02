@@ -46,7 +46,7 @@ Run the following artisan command:
 php artisan admin-panel:install
 ```
 
-It will create a view/vendor/admin-panel directory with `home.blade.php` inside.
+It will create a view/admin-panel directory with `home.blade.php` inside.
 This file access the admin home page at `home.DOMAIN_BASE`.
 
 ## Other console commands

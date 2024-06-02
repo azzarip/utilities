@@ -17,7 +17,7 @@ class AdminPanel
 
     protected static function getItems(): array
     {
-        $directory = resource_path('views/vendor/admin-panel');
+        $directory = resource_path('views/admin-panel');
         $files = File::files($directory);
 
         $routes = Collection::make($files)

@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 
-it('installs vendor/admin-panel folder if does not exists', function () {
-    $destination = resource_path('views/vendor');
+it('installs admin-panel folder if does not exists', function () {
+    $destination = resource_path('views');
     if (File::isDirectory($destination)) {
         File::deleteDirectory($destination);
     }
@@ -17,7 +17,7 @@ it('installs vendor/admin-panel folder if does not exists', function () {
 });
 
 it('creates the home blade', function () {
-    $file = resource_path('views/vendor/admin-panel/home.blade.php');
+    $file = resource_path('views/admin-panel/home.blade.php');
 
     if (File::exists($file)) {
         File::delete($file);
@@ -29,7 +29,7 @@ it('creates the home blade', function () {
 });
 
 it('creates a new panel blade', function () {
-    $file = resource_path('views/vendor/admin-panel/test.blade.php');
+    $file = resource_path('views/admin-panel/test.blade.php');
 
     if (File::exists($file)) {
         File::delete($file);
@@ -47,6 +47,6 @@ it('returns error if called twice', function () {
 
     expect($response)->toBe(1);
 
-    $file = resource_path('views/vendor/admin-panel/test.blade.php');
+    $file = resource_path('views/admin-panel/test.blade.php');
     File::delete($file);
 });
