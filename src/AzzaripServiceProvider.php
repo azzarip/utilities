@@ -37,9 +37,9 @@ class AzzaripServiceProvider extends PackageServiceProvider
 
     public function registeringPackage(): void
     {
-        Fortify::loginView(fn () => view('azzarip::login'));
-        Config::set('fortify.domain', env('DOMAIN_ADMIN'));
-        Config::set('fortify.home', 'http://'.env('DOMAIN_ADMIN'));
+        //Config::set('fortify.domain', env('DOMAIN_ADMIN'));
+        Config::set('fortify.views', false);
+        //Config::set('fortify.home', 'http://'.env('DOMAIN_ADMIN'));
     }
 
     protected function getCommands(): array

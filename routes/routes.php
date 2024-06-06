@@ -11,17 +11,22 @@ Route::view('/privacy-policy', 'azzarip::privacy')->name('privacy-policy');
 Route::view('/cookie-policy', 'azzarip::cookie')->name('cookie-policy');
 Route::post('/deploy', DeployController::class);
 
-Route::domain(config('domains.admin.url'))
-    ->middleware(['web', 'auth', 'verified', AuthenticateSession::class])
-    ->group(function () {
+Route::group([
+    'domain' => config('domains.admin.url'),
+    'middleware' => 'web',
+], function () {
+    Route::get('/login', "Filament\Pages\Auth\Login")->name('admin.login');
+
+    Route::middleware('auth:admin')->group(function () {
         Route::view('/', 'admin-panel.home')->name('admin.dashboard');
         if (! empty(AdminPanel::items())) {
             Route::get('/{panel}', function (string $panel) {
                 return view('admin-panel.'.$panel);
             })->whereIn('panel', array_keys(AdminPanel::items()))
-                ->name('admin');
+                ->name('admin.');
         }
     });
+});
 
 
 Route::middleware(DomainKey::class)->group(function() {
