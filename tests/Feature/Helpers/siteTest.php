@@ -1,6 +1,6 @@
 <?php
 
-beforeEach( function() {
+beforeEach(function () {
     request()->attributes->add(['domainKey' => 'base']);
 });
 it('returns the array of settings', function () {

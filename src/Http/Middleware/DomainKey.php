@@ -18,8 +18,9 @@ class DomainKey
         $domain = request()->getHost();
 
         foreach (config('domains') as $key => $value) {
-            if($value['url'] == $domain) {
+            if ($value['url'] == $domain) {
                 $request->attributes->add(['domainKey' => $key]);
+
                 return $next($request);
             }
         }

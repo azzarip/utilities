@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Config;
 
-beforeEach(function() {
+beforeEach(function () {
     request()->attributes->add(['domainKey' => 'base']);
 });
 
