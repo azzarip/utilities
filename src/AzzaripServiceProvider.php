@@ -38,6 +38,8 @@ class AzzaripServiceProvider extends PackageServiceProvider
     public function registeringPackage(): void
     {
         Config::set('fortify.views', false);
+        Config::set('app-modules.modules_namespace', 'Domains');
+        Config::set('app-modules.modules_directory', 'domains');
     }
 
     protected function getCommands(): array
