@@ -1,5 +1,6 @@
 @props(['nav' => true, 'alignmentCenter' => false])
 
+<div>
 @if($nav)
 <header>
 <div class="flex items-stretch justify-between content-baseline {{ $headerClass ?? null }}">
@@ -22,10 +23,13 @@
                     <x-heroicon-s-bars-3 class="inline w-11 h-11" x-show="!open" @click="open = true" />
                 </div>
                 <div x-show="open" class="fixed top-0 bottom-0 left-0 right-0 z-10 bg-black/50" x-cloak>
-                    <div x-show="open" x-transition:enter="transition duration-500"
+                    <div x-show="open"
+                        x-transition:enter="transition duration-500"
                         x-transition:enter-start="transform translate-x-full"
-                        x-transition:enter-end="transform translate-x-0" x-transition:leave="transition duration-500"
-                        x-transition:leave-start="transform" x-transition:leave-end="transform translate-x-full"
+                        x-transition:enter-end="transform translate-x-0"
+                        x-transition:leave="transition duration-500"
+                        x-transition:leave-start="transform"
+                        x-transition:leave-end="transform translate-x-full"
                         class="fixed top-0 bottom-0 right-0 z-20 w-2/3 bg-white md:w-1/3" @click.outside="open = false">
 
                         <x-heroicon-s-x-mark
@@ -42,6 +46,7 @@
 @endif
 
 {{ $slot }}
+</div>
 
 @hasSection('footer')
     @yield('footer')
