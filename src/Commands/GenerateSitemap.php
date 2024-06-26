@@ -30,7 +30,7 @@ class GenerateSitemap extends Command
     {
         foreach (config('domains') as $key => $domain) {
 
-            $file = resource_path('sitemaps/'.$key.'.php');
+            $file = base_path("domains/$key/sitemap.php");
             if (! file_exists($file)) {
                 continue;
             }
