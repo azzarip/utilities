@@ -17,7 +17,7 @@ Route::middleware(DomainKey::class)->group(function () {
         return response($xml, 200)->header('Content-Type', 'application/xml');
     });
 
-    Route::get('/favicon.ico', function () {
+    Route::get('/favicon', function () {
         $key = request()->get('domainKey');
 
         $favicon_path = storage_path("app/favicons/$key.ico");
