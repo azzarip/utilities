@@ -17,11 +17,12 @@ class DeployController extends Controller
         Artisan::call('down');
         try {
             Process::run('git pull');
-            Process::run('composer install --optimize-autoloader --no-dev');
-            Artisan::call('sitemap:generate');
+            Process::run('composer install --optimize-autoloader --no-dev --no-interactions');
         } finally {
+            Artisan::call('sitemap:generate');
             Artisan::call('up');
             Process::run('npm run build');
+            Artisan::call('optimize');
         }
     }
 }
