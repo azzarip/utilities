@@ -17,12 +17,12 @@ Route::middleware(DomainKey::class)->group(function () {
         return response($xml, 200)->header('Content-Type', 'application/xml');
     });
 
-    Route::get('/favicon', function () {
+    Route::get('/favicon.ico', function () {
         $key = request()->get('domainKey');
 
         $favicon_path = storage_path("app/favicons/$key.ico");
         if(! File::exists($favicon_path)) {
-            $favicon_path = public_path('favicon.ico');
+        abort(404);
         }
 
         $ico = File::get($favicon_path);
