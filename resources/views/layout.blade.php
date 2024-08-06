@@ -1,4 +1,4 @@
-@props(['nav' => true, 'alignmentCenter' => false])
+@props(['nav' => true, 'alignment' => 'right'])
 
 <div>
 @if($nav)
@@ -7,12 +7,12 @@
     <div class="xl:w-1/4">
         @yield('header')
     </div>
-    <div class="flex {{ $alignmentCenter  ? 'w-1/2 justify-center' : 'w-3/4 justify-end' }} mt-3 max-xl:hidden">
+    <div class="flex {{ $alignment == 'center'  ? 'w-1/2 justify-center' : 'w-3/4 justify-end' }} mt-3 max-xl:hidden">
         <nav>
             @yield('big-menu')
         </nav>
     </div>
-    @if($alignmentCenter)
+    @if($alignment == 'center')
     <div class="w-1/4 max-xl:hidden"></div>
     @endif
 
