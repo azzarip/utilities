@@ -20,7 +20,7 @@ class DomainKey
         foreach (config('domains') as $key => $value) {
             if ($value['url'] == $domain) {
                 $request->attributes->add(['domainKey' => $key]);
-
+                config()->set('seo.site_name', $value['name']);
                 return $next($request);
             }
         }
