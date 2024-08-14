@@ -21,6 +21,7 @@ class DomainKey
             if ($value['url'] == $domain) {
                 $request->attributes->add(['domainKey' => $key]);
                 config()->set('seo.site_name', $value['name']);
+                config()->set('app.url', durl('/', $key, [], false));
                 return $next($request);
             }
         }

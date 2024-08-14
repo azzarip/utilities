@@ -4,7 +4,7 @@ use Azzarip\Utilities\CookieConsent\CookieConsent;
 use Illuminate\Support\Arr;
 
 if (! function_exists('durl')) {
-    function durl($string, $domainKey = null, $data = [])
+    function durl($string, $domainKey = null, $data = [], $attach_data = true)
     {
 
         if (empty($domainKey)) {
@@ -16,7 +16,7 @@ if (! function_exists('durl')) {
             }
 
             $cookieConsent = CookieConsent::get();
-            if ($cookieConsent) {
+            if ($cookieConsent && $attach_data) {
                 $data['cc'] = $cookieConsent->toUrl();
             }
         }
