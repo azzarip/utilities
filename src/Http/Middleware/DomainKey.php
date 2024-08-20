@@ -19,13 +19,23 @@ class DomainKey
 
         foreach (config('domains') as $key => $value) {
             if ($value['url'] == $domain) {
+
                 $request->attributes->add(['domainKey' => $key]);
                 config()->set('seo.site_name', $value['name']);
                 config()->set('app.url', durl('/', $key, [], false));
+
+                if(! $this->isBaseDomain($domain)) {
+                     config()->set('session.domain', '');
+                }
+
                 return $next($request);
             }
         }
 
         return $next($request);
+    }
+
+    protected function isBaseDomain($domain) {
+        return $domain == env('DOMAIN_BASE') || strpos($domain, '.' . env('DOMAIN_BASE'));
     }
 }
