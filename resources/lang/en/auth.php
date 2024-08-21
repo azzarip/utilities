@@ -14,6 +14,8 @@ return [
     */
 
     'failed' => 'The given credentials do not match our records.',
+    'not_registered' => 'The given email address is yet registered. Please complete the registration form.',
+    'already_registered' => 'The given email address is already registered. Please log in here.',
     'reset_password' => 'Change the password',
     'password' => 'The provided password is incorrect.',
     'token' => 'The token has expired, please request a new one here.',

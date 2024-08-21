@@ -3,7 +3,7 @@
 
 <x-forms::base :action="route('password.reset')" :button="__('a::auth.message.reset')" >
 
-    <p style="text-align: center;">@lang('a::auth.message.reset')</p>
+    <p>@lang('a::auth.message.reset')</p>
 
     <x-forms::field.password new=true />
 

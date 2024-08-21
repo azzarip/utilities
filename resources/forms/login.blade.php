@@ -4,13 +4,14 @@
     <form action="{{ route('login') }}" method="POST">
         @csrf
         <div class="space-y-4">
-            @error('failed')
-            <p class="px-2 py-1 text-black rounded-xl" style="background-color: #fca5a5;"><x-heroicon-o-exclamation-triangle class="inline w-6 aspect-auto" />
-                @lang('a::auth.failed')</p>
+            @error('user')
+            <p class="px-2 py-1 text-black rounded-xl" style="background-color: #fca5a5;"><x-heroicon-o-exclamation-triangle
+                style="display: inline; width: 24px; height: 24px;" />
+                @lang("a::auth.$message")</p>
             @enderror
 
             @if(session()->has('info'))
-            <p class="px-2 py-1 text-black rounded-xl" style="background-color: #86efac;"><x-heroicon-o-information-circle class="inline w-6 aspect-auto" />
+            <p class="px-2 py-1 text-black rounded-xl" style="background-color: #86efac;"><x-heroicon-o-information-circle style="display: inline; width: 24px; height: 24px;" />
                 {{ session('info') }}</p>
             @endif
 
