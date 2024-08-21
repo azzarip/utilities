@@ -15,6 +15,7 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class AzzaripServiceProvider extends PackageServiceProvider
 {
+
     public function configurePackage(Package $package): void
     {
         $package
@@ -22,8 +23,7 @@ class AzzaripServiceProvider extends PackageServiceProvider
             ->hasConfigFile('domains')
             ->hasConfigFile('utilities')
             ->hasRoute('routes')
-            ->hasCommands($this->getCommands())
-            ->hasViews();
+            ->hasCommands($this->getCommands());
     }
 
     public function bootingPackage(): void
@@ -40,16 +40,15 @@ class AzzaripServiceProvider extends PackageServiceProvider
     {
         Config::set('app-modules.modules_namespace', 'Domains');
         Config::set('app-modules.modules_directory', 'domains');
-
-        $this->loadTranslationsFrom(
-            base_path() . '/vendor/azzarip/utilities/resources/lang', 'a');
-        $this->loadJsonTranslationsFrom(
-                base_path() . '/vendor/azzarip/utilities/resources/lang');
-
     }
 
     public function packageBooted(): void
     {
+        $this->loadTranslationsFrom($this->getPath() . '/resources/lang', 'a');
+        $this->loadJsonTranslationsFrom($this->getPath() . '/resources/lang');
+
+        $this->loadViewsFrom($this->getPath() . '/resources/views/azzarip', 'azzarip');
+        $this->loadViewsFrom($this->getPath() . '/resources/views/forms', 'forms');
 
     }
 
@@ -58,5 +57,10 @@ class AzzaripServiceProvider extends PackageServiceProvider
         return [
             GenerateSitemap::class,
         ];
+    }
+
+    protected function getPath()
+    {
+        return base_path() . '/vendor/azzarip/utilities/resources';
     }
 }
