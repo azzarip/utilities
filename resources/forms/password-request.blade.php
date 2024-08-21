@@ -18,5 +18,5 @@
             </div>
         </div>
     </form>
-    <a class="block mt-4 text-center underline cursor-pointer" href={{ route('login') }}>@lang('a::auth.link.back')</a>
+    <p><a class="block mt-4 text-center underline cursor-pointer" href={{ route('login') }}>@lang('a::auth.link.back')</a></p>
 </div>

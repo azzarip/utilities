@@ -13,7 +13,6 @@
             <p class="px-2 py-1 text-black rounded-xl" style="background-color: #86efac;"><x-heroicon-o-information-circle class="inline w-6 aspect-auto" />
                 {{ session('info') }}</p>
             @endif
-            <div>
 
             <x-forms::field.email />
 
