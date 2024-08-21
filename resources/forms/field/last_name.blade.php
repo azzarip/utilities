@@ -4,7 +4,8 @@
         class="input-text"
         placeholder="@lang('a::forms.placeholder.last_name')"
         autocomplete="family-name"
-        value="{{ old('last_name') }}" />
+        value="{{ old('last_name') }}"
+        required />
     @error('last_name')
         <p class="error-msg">{{ $message }}</p>
     @enderror
