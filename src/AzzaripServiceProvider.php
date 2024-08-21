@@ -23,7 +23,6 @@ class AzzaripServiceProvider extends PackageServiceProvider
             ->hasConfigFile('utilities')
             ->hasRoute('routes')
             ->hasCommands($this->getCommands())
-            ->hasTranslations()
             ->hasViews();
     }
 
@@ -37,9 +36,14 @@ class AzzaripServiceProvider extends PackageServiceProvider
 
     public function registeringPackage(): void
     {
-        Config::set('fortify.views', false);
         Config::set('app-modules.modules_namespace', 'Domains');
         Config::set('app-modules.modules_directory', 'domains');
+    }
+
+    public function packageBooted(): void
+    {
+        $this->loadViewsFrom(__DIR__ . '/../resources/forms', 'forms');
+        $this->loadTranslationsFrom(__DIR__. '/../resources/lang', '');
     }
 
     protected function getCommands(): array
