@@ -1,5 +1,5 @@
 <div id='phone_field'>
-    <label for="tel" class="block">@lang('forms.label.phone'):</label>
+    <label for="tel" class="block">@lang('a::forms.label.phone'):</label>
     <input type="tel" name="tel" id="tel"
         class="input-text"
         value="{{ old('tel') }}" autocomplete="tel-national">
@@ -32,7 +32,7 @@
 
         console.log(iti.getValidationError());
         if (!iti.isValidNumber()) {
-            input.setCustomValidity("@lang('validation.phone')");
+            input.setCustomValidity("@lang('a::validation.phone')");
             event.preventDefault();
             input.reportValidity();
         }
