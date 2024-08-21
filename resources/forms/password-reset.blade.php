@@ -7,5 +7,5 @@
 
     <x-forms::field.password new=true />
 
-<x-forms::base />
+</x-forms::base>
 </div>
