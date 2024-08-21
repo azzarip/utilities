@@ -15,9 +15,9 @@
             @endif
             <div>
 
-            <x-forms::field.email />
+            <x-form::field.email />
 
-            <x-forms::field.password />
+            <x-form::field.password />
 
             <div class="pt-4">
                 <button type="submit" class="block w-full max-w-lg py-3 mx-auto text-2xl big-button"> @lang('login')

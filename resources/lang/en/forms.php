@@ -13,5 +13,5 @@ return [
         'new-password' => 'Your new Password',
         'current-password' => 'Your Password',
     ],
-    'privacy_policy' => 'I consent to the use of my personal data in accordance with the :link',
+    'privacy_policy' => 'I consent to the terms of the :link',
 ];

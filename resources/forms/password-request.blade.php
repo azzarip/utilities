@@ -9,7 +9,7 @@
                     {{ $message }}</p>
             @enderror
 
-            <x-forms::field.email />
+            <x-form::field.email />
 
             <p>@lang('a::auth.message.request')</p>
             <div class="pt-4">
