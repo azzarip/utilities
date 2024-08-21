@@ -1,22 +1,19 @@
 <div>
-    <h1 class="text-3xl leading-normal text-center text-black">Reset Password</h1>
+    <h1 style="margin-bottom: 1rem; font-size: 1.875rem; line-height: 1.5; text-align: center; color: #000000;">Reset Password</h1>
 
-    <form action="{{ route('password.request') }}" method="POST">
-        @csrf
-        <div class="pt-4 space-y-4">
+    <x-forms::base :action="route('password.request')" button='Reset Password'/>
+
             @error('token')
-                <p class="px-2 py-1 text-black bg-red-300 rounded-xl"><x-heroicon-o-exclamation-triangle class="inline w-6 aspect-auto" />
+                <p style="padding: 0.25rem 0.5rem; color: #000000; background-color: #FCA5A5; border-radius: 0.75rem;" />
                     {{ $message }}</p>
             @enderror
 
             <x-forms::field.email />
 
             <p>@lang('a::auth.message.request')</p>
-            <div class="pt-4">
-                <button type="submit" class="block w-full max-w-lg py-3 mx-auto text-2xl big-button"> Reset Password
-                </button>
-            </div>
-        </div>
-    </form>
-    <p><a class="block mt-4 text-center underline cursor-pointer" href={{ route('login') }}>@lang('a::auth.link.back')</a></p>
+
+    </x-forms::base>
+
+    <p><a class="block mt-6 text-center underline cursor-pointer" href={{ route('login') }}>@lang('a::auth.link.back')</a></p>
+
 </div>
