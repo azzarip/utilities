@@ -196,9 +196,9 @@ uns bitte unter <a href="mailto:marco.azzari@pizzazero.ch"
 <p><strong>Web- und mobile Analytik</strong></p>
 <p>Google Analytics und Google Tag Manager</p>
 <p><strong>Website Hosting</strong></p>
-<p>Hostinger</p>
+<p>Digital Ocean</p>
 <p><strong>User database</strong></p>
-<p>Infusionsoft</p>
+<p>Digital Ocean</p>
 
 <p>Wir müssen Ihre personenbezogenen Daten auch in den folgenden Situationen teilen:</p>
 
