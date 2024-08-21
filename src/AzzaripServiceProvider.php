@@ -33,7 +33,12 @@ class AzzaripServiceProvider extends PackageServiceProvider
         EncryptCookies::except('cookie_consent');
         Blade::component('theme', Theme::class);
         Blade::anonymousComponentPath(
-            base_path('/vendor/azzarip/utilities/resources/forms'), 'forms');
+            $this->getPath() . '/views/forms', 'forms');
+
+        $this->loadTranslationsFrom($this->getPath() . '/lang', 'a');
+        $this->loadJsonTranslationsFrom($this->getPath() . '/lang');
+
+        $this->loadViewsFrom($this->getPath() . '/views/azzarip', 'azzarip');
     }
 
     public function registeringPackage(): void
@@ -44,11 +49,6 @@ class AzzaripServiceProvider extends PackageServiceProvider
 
     public function packageBooted(): void
     {
-        $this->loadTranslationsFrom($this->getPath() . '/resources/lang', 'a');
-        $this->loadJsonTranslationsFrom($this->getPath() . '/resources/lang');
-
-        $this->loadViewsFrom($this->getPath() . '/resources/views/azzarip', 'azzarip');
-        $this->loadViewsFrom($this->getPath() . '/resources/views/forms', 'forms');
 
     }
 
