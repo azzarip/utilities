@@ -33,7 +33,7 @@ class AzzaripServiceProvider extends PackageServiceProvider
         EncryptCookies::except('cookie_consent');
         Blade::component('theme', Theme::class);
         Blade::anonymousComponentPath(
-            base_path('/vendor/azzarip/utilities/resources/forms'), 'form');
+            base_path('/vendor/azzarip/utilities/resources/forms'), 'forms');
     }
 
     public function registeringPackage(): void
