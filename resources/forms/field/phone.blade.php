@@ -1,8 +1,7 @@
-
 <div id='phone_field'>
-    <label for="tel" class="block">@lang('forms::phone'):</label>
+    <label for="tel" class="block">@lang('forms.label.phone'):</label>
     <input type="tel" name="tel" id="tel"
-        class="w-full p-2 border border-gray-400 rounded-md"
+        class="input-text"
         value="{{ old('tel') }}" autocomplete="tel-national">
 
     @error('phone')
@@ -44,4 +43,5 @@
 @section('head')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.0.1/build/css/intlTelInput.css">
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.0.1/build/js/intlTelInput.min.js"></script>
+    <style>.iti {width: 100%;}</style>
 @endsection

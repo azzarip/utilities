@@ -32,18 +32,24 @@ class AzzaripServiceProvider extends PackageServiceProvider
         Livewire::component('azzarip.utilities.filament.widgets.admin-button', AdminButton::class);
         EncryptCookies::except('cookie_consent');
         Blade::component('theme', Theme::class);
+        Blade::anonymousComponentPath(
+            base_path('/vendor/azzarip/utilities/resources/forms'), 'form');
     }
 
     public function registeringPackage(): void
     {
         Config::set('app-modules.modules_namespace', 'Domains');
         Config::set('app-modules.modules_directory', 'domains');
+
+        $this->app->bind('path.lang', function () {
+            return base_path() . '/vendor/azzarip/utilities/resources/lang';
+        });
+
     }
 
     public function packageBooted(): void
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/forms', 'forms');
-        $this->loadTranslationsFrom(__DIR__. '/../resources/lang', '');
+
     }
 
     protected function getCommands(): array
