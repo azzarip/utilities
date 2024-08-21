@@ -41,9 +41,10 @@ class AzzaripServiceProvider extends PackageServiceProvider
         Config::set('app-modules.modules_namespace', 'Domains');
         Config::set('app-modules.modules_directory', 'domains');
 
-        $this->app->bind('path.lang', function () {
-            return base_path() . '/vendor/azzarip/utilities/resources/lang';
-        });
+        $this->loadTranslationsFrom(
+            base_path() . '/vendor/azzarip/utilities/resources/lang', 'a');
+        $this->loadJsonTranslationsFrom(
+                base_path() . '/vendor/azzarip/utilities/resources/lang');
 
     }
 
