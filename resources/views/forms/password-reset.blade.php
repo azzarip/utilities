@@ -7,5 +7,8 @@
 
     <x-forms::field.password new=true />
 
+    <input type="hidden" name="token" value="{{ request()->get('token') }}">
+    <input type="hidden" name="uuid" value="{{ request()->get('uuid') }}">
+
 </x-forms::base>
 </div>
