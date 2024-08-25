@@ -1,8 +1,8 @@
 <div>
     <h1 class="mb-2 text-3xl leading-normal text-center text-black">@lang('login')</h1>
 
-    <form action="{{ route('login') }}" method="POST">
-        @csrf
+
+    <x-forms::base :action="route('login')" :button="trans('login')" >
         <div class="space-y-4">
             @error('user')
             <p class="px-2 py-1 text-black rounded-xl" style="background-color: #fca5a5;"><x-heroicon-o-exclamation-triangle
@@ -19,12 +19,7 @@
 
             <x-forms::field.password />
 
-            <div class="pt-2">
-                <x-button type="submit">
-                    @lang('login')
-                </x-button>
-            </div>
         </div>
-    </form>
+    </x-forms::base>
     <a class="block mt-4 text-center underline cursor-pointer" href={{ route('password.request') }}>@lang('a::auth.link.forgot')?</a>
 </div>

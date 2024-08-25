@@ -6,7 +6,6 @@
     <div class="space-y-4">
         {{ $slot }}
     </div>
-    <div style="padding-top: 1rem;">
-        <x-button type="submit">{{ $button }}</x-button>
-    </div>
+    <x-button type="submit">{{ $button }}</x-button>
+
 </form>
