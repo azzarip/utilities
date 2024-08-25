@@ -20,8 +20,9 @@
             <x-forms::field.password />
 
             <div class="pt-4">
-                <button type="submit" class="block w-full max-w-lg py-3 mx-auto text-2xl big-button"> @lang('login')
-                </button>
+                <x-button type="submit">
+                    @lang('login')
+                </x-button>
             </div>
         </div>
     </form>
