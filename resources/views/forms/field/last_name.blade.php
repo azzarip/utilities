@@ -1,5 +1,5 @@
 <div>
-    <label for="last_name" class="">@lang('a::forms.label.last_name'):</label>
+    <label for="last_name" class="block">@lang('a::forms.label.last_name'):</label>
     <input type="text" id="last_name" name="last_name"
         class="input-text"
         placeholder="@lang('a::forms.placeholder.last_name')"

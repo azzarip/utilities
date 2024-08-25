@@ -1,5 +1,5 @@
 <div>
-    <label for="email" class="">Email:</label>
+    <label for="email" class="block">Email:</label>
     <input type="text" id="email" name="email"
         class="input-text"
         placeholder="@lang('a::forms.placeholder.email')" autocomplete="email" value="{{ old('email') }}"
