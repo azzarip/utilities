@@ -19,7 +19,7 @@
 
             <x-forms::field.password />
 
-            <div class="pt-4">
+            <div class="pt-2">
                 <x-button type="submit">
                     @lang('login')
                 </x-button>

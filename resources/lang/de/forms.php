@@ -10,8 +10,8 @@ return [
         'email' => 'Deine Email',
         'first_name' => 'Dein Vorname',
         'last_name' => 'Dein Nachname',
-        'new-password' => 'Dein neue Password',
+        'new-password' => 'Dein neues Password',
         'current-password' => 'Dein Password',
     ],
-    'privacy_policy' => 'I consent to the terms of the :link',
+    'privacy_policy' => 'Ja, ich stimme der :link zu.',
 ];
