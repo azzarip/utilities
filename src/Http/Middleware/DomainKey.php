@@ -28,6 +28,10 @@ class DomainKey
                      config()->set('session.domain', '');
                 }
 
+                if($key == 'admin') {
+                    config()->set('app.locale', 'en');
+                }
+
                 return $next($request);
             }
         }
