@@ -33,10 +33,10 @@ class CHF
 
     public function __toString(): string
     {
-        return $this->getString();
+        return $this->toLabel();
     }
 
-    public function format(): string
+    public function toString(): string
     {
         if ($this->rappe == 0) {
             return '0.-';
@@ -46,19 +46,24 @@ class CHF
             return number_format($this->value, 0, '.', '\'').'.-';
         }
 
-        return $this->getString();
+        return $this->formatNumber();
     }
 
-    public function toLabel(): string
+    public function toOffer(): string
     {
         if ($this->rappe == 0) {
             return 'Gratis';
         }
 
-        return 'CHF '.$this->format();
+        return $this->toLabel();
     }
 
-    private function getString(): string
+    public function toLabel(): string
+    {
+        return 'CHF '.$this->toString();
+    }
+
+    private function formatNumber(): string
     {
         return number_format($this->value, 2, '.', '\'');
     }
