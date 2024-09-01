@@ -24,12 +24,8 @@ class DomainKey
                 config()->set('seo.site_name', $value['name']);
                 config()->set('app.url', durl('/', $key, [], false));
 
-                if(! $this->isBaseDomain($domain)) {
-                     config()->set('session.domain', '');
-                }
-
-                if($key == 'admin') {
-                    config()->set('app.locale', 'en');
+                if (! $this->isBaseDomain($domain)) {
+                    config()->set('session.domain', '');
                 }
 
                 return $next($request);
@@ -39,7 +35,8 @@ class DomainKey
         return $next($request);
     }
 
-    protected function isBaseDomain($domain) {
+    protected function isBaseDomain($domain)
+    {
         return $domain == env('DOMAIN_BASE') || strpos($domain, '.' . env('DOMAIN_BASE'));
     }
 }
