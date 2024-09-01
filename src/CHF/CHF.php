@@ -49,7 +49,7 @@ class CHF
         return $this->getString();
     }
 
-    public function label(): string
+    public function toLabel(): string
     {
         if ($this->rappe == 0) {
             return 'Gratis';
