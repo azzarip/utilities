@@ -22,7 +22,7 @@ Route::middleware(DomainKey::class)->group(function () {
 
         $favicon_path = storage_path("app/favicons/$key.ico");
         if(! File::exists($favicon_path)) {
-        abort(404);
+            $favicon_path = storage_path("app/favicons/base.ico");
         }
 
         $ico = File::get($favicon_path);
