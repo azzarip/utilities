@@ -17,7 +17,7 @@
         <meta name="robots" content="noarchive">
     @endif
     <x-tagmanager-head />
-    @yield('head')
+    @stack('head')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
     @googlefonts
@@ -40,7 +40,7 @@
     @if(config('utilities.cookie-consent'))
         @livewire('cookie-consent')
     @endif
-    @yield('scripts')
+    @stack('scripts')
     @livewireScripts
 </body>
 </html>

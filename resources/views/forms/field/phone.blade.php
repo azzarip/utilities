@@ -9,7 +9,7 @@
     @enderror
 </div>
 
-@section('scripts')
+@push('scripts')
 <script>
     const country_code = document.querySelector("#country_code");
 
@@ -38,10 +38,10 @@
         }
     });
 </script>
-@endsection
+@endpush
 
-@section('head')
+@push('head')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.0.1/build/css/intlTelInput.css">
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.0.1/build/js/intlTelInput.min.js"></script>
     <style>.iti {width: 100%;}</style>
-@endsection
+@endpush
