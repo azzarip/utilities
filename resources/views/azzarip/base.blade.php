@@ -42,5 +42,8 @@
     @endif
     @stack('scripts')
     @livewireScripts
+    @auth
+        <x-modals::logout />
+    @endauth
 </body>
 </html>
