@@ -7,16 +7,11 @@ use Azzarip\Utilities\CookieConsent\CookieConsent;
 
 class DUrl {
 
-    public function __construct(public string $uri, public string $domainKey = null, public array $data = [])
+    public function __construct(public string $uri, public string $domainKey, public array $data = [])
     {
-        if (empty($domainKey)) {
-            $this->domainKey = request()->get('domainKey');
-        }
-
         if (empty(config('domains.'.$this->domainKey))) {
             throw new \Exception('Wrong domain in durl.');
         }
-
     }
 
     public function url() {

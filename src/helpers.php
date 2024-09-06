@@ -4,7 +4,7 @@ use Azzarip\Utilities\DUrl;
 use Illuminate\Support\Arr;
 
 if (! function_exists('durl')) {
-    function durl($string, $domainKey = null, $data = [])
+    function durl($string, $domainKey, $data = [])
     {
         return new DUrl($string, $domainKey, $data);
     }
