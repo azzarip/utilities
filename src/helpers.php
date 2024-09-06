@@ -1,43 +1,12 @@
 <?php
 
-use Azzarip\Utilities\CookieConsent\CookieConsent;
+use Azzarip\Utilities\DUrl;
 use Illuminate\Support\Arr;
 
 if (! function_exists('durl')) {
-    function durl($string, $domainKey = null, $data = [], $attach_data = true)
+    function durl($string, $domainKey = null, $data = [])
     {
-
-        if (empty($domainKey)) {
-            $domainKey = request()->get('domainKey');
-        } else {
-
-            if (empty(config('domains.'.$domainKey))) {
-                throw new \Exception('Wrong domain in durl.');
-            }
-
-            $cookieConsent = CookieConsent::get();
-            if ($cookieConsent && $attach_data) {
-                $data['cc'] = $cookieConsent->toUrl();
-            }
-        }
-
-        $url = config('domains.'.$domainKey.'.url');
-
-        $path = ltrim($string, '/');
-
-        if (! empty($path)) {
-            $url .= '/'.$path;
-        }
-
-        if (! empty($data)) {
-            $url .= '?'.Arr::query($data);
-        }
-
-        if (request()->isSecure()) {
-            return 'https://'.$url;
-        }
-
-        return 'http://'.$url;
+        return new DUrl($string, $domainKey, $data);
     }
 }
 
