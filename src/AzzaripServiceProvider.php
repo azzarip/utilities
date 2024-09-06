@@ -34,6 +34,8 @@ class AzzaripServiceProvider extends PackageServiceProvider
         Blade::component('theme', Theme::class);
         Blade::anonymousComponentPath(
             $this->getPath() . '/views/forms', 'forms');
+        Blade::anonymousComponentPath(
+                $this->getPath() . '/views/modals', 'modals');
 
         $this->loadTranslationsFrom($this->getPath() . '/lang', 'a');
         $this->loadJsonTranslationsFrom($this->getPath() . '/lang');
