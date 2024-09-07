@@ -19,7 +19,7 @@ return [
         'new_address' => 'New Address',
         'save_address' => 'Save Address',
         'line1' => 'Street and House Number',
-        'line1-placeholder' => 'Strasse und Housenr.',
+        'line1-placeholder' => 'Strasse und House Nr.',
         'line2' => 'Additional Address',
         'city' => 'City',
         'billing_address' => 'Billing Address',

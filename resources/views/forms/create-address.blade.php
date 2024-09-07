@@ -1,6 +1,6 @@
 <div class="mt-2 mb-4 max-w-xl mx-auto">
     <h1 class="text-3xl text-center">@lang('a::forms.address.new_address')</h1>
-    <x-forms::base :action="route('address.create')" button="@lang('a::forms.address.save_address')">
+    <x-forms::base :action="route('address.create')" :button="trans('a::forms.address.save_address')">
         <input type="hidden" name="redirect" value="{{ request()->url() }}">
 
         <div>
@@ -40,7 +40,7 @@
 
         <div x-data="{ line2: {{ old('line2') ? 'true' : 'false'  }} }">
             <p class="pl-2 text-sm link" x-show="!line2" @click="line2 = true"><x-heroicon-s-plus-circle
-                    class="inline w-5 h-5 mb-1" /> @lang('a::forms.address.line2'):</p>
+                    class="inline w-5 h-5 mb-1" /> @lang('a::forms.address.line2')</p>
             <div x-show="line2" x-cloack>
                 <label for="line2" class="block text-xl text-left"><x-heroicon-s-minus-circle
                         class="inline w-5 h-5 mb-1 link" @click="line2 = false" />@lang('a::forms.address.line2'):</label>
@@ -75,14 +75,14 @@
         <div class="ml-4 py-4 flex flex-col gap-y-4 justify-around md:flex-row">
             <div class="flex items-center gap-x-2">
                 <input type="checkbox" name="shipping" id="shipping" class="w-4 h-4 md:w-6 md:h-6"
-                @checked($type == 'shipping')>
+                @checked( old('shipping') ?? ($type == 'shipping'))>
                 <label for="shipping" class="text-xl">
                     <x-heroicon-o-truck class="w-6 h-6 md:w-8 md:h-8 inline mb-1" /> @lang('a::forms.address.shipping_address')
                 </label>
             </div>
             <div class="flex items-center gap-x-2">
                 <input type="checkbox" name="billing" id="billing" class="w-4 h-4 md:w-6 md:h-6"
-                @checked($type == 'billing')>
+                @checked( old('billing') ?? ($type == 'billing'))>
                 <label for="billing" class="text-xl">
                     <x-heroicon-o-clipboard-document-list class="w-6 h-6 md:w-8 md:h-8 inline mb-1" /> @lang('a::forms.address.billing_address')
                 </label>
