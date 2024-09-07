@@ -6,7 +6,7 @@
     <x-forms::base :action="route('address.edit')" :button="trans('a::forms.address.save_address')">
         <input type="hidden" name="redirect" value="{{ request()->url() }}">
         <input type="hidden" name="id" value="{{ request()->query('aid') }}">
-
+        @method('put')
         <div>
             <label for="name" class="block text-xl text-left">Name:</label>
             <input type="text" id="name" name="name" class="input-text"
