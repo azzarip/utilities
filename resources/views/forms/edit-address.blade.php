@@ -2,7 +2,7 @@
 <a href="{{ request()->url() }}" class="block mb-2 ml-2"><x-heroicon-o-arrow-left class="inline w-6 mr-1" />@lang('Back')</a>
 
 <div class="mt-2 mb-4 max-w-xl mx-auto">
-    <h1 class="text-3xl text-center">@lang('a::address.edit')</h1>
+    <h1 class="font-head text-3xl font-semibold text-center">@lang('a::address.edit')</h1>
     <x-forms::base :action="route('address.edit')" :button="trans('a::address.save')">
         <input type="hidden" name="redirect" value="{{ request()->url() }}">
         <input type="hidden" name="id" value="{{ request()->query('aid') }}">
@@ -18,12 +18,12 @@
             @enderror
         </div>
 
-        <div x-data="{ co: {{ old('co') ? 'true' : 'false'  }} }">
+        <div x-data="{ co: {{ old('co') ?? $address->co ? 'true' : 'false'  }} }">
             <p class="pl-2 text-sm link" x-show="!co" @click="co = true"><x-heroicon-s-plus-circle
                     class="inline w-5 h-5 mb-1" /> c/o</p>
             <div x-show="co" x-cloak>
                 <label for="co" class="block text-xl text-left"><x-heroicon-s-minus-circle
-                        class="inline w-5 h-5 mb-1" @click="co = false" />c/o:</label>
+                        class="inline w-5 h-5 mb-1" @click="co = false; clear('co')" />c/o:</label>
                 <input type="text" id="co" name="co" class="input-text"
                     value="{{ old('co') ?? $address->co }}"
              placeholder="(Optional)">
@@ -42,12 +42,12 @@
             @enderror
         </div>
 
-        <div x-data="{ line2: {{ old('line2') ? 'true' : 'false'  }} }">
+        <div x-data="{ line2: {{ old('line2') ?? $address->line2 ? 'true' : 'false'  }} }">
             <p class="pl-2 text-sm link" x-show="!line2" @click="line2 = true"><x-heroicon-s-plus-circle
                     class="inline w-5 h-5 mb-1" /> @lang('a::address.line2-label')</p>
             <div x-show="line2" x-cloack>
                 <label for="line2" class="block text-xl text-left"><x-heroicon-s-minus-circle
-                        class="inline w-5 h-5 mb-1 link" @click="line2 = false" />@lang('a::address.line2'):</label>
+                        class="inline w-5 h-5 mb-1 link" @click="line2 = false; clear('line2')" />@lang('a::address.line2'):</label>
                 <input type="text" id="line2" name="line2" class="input-text" value="{{ old('line2') ?? $address->line2 }}"
                 placeholder="(Optional)" autocomplete="address-line2">
                 @error('line2')
@@ -96,3 +96,14 @@
     </x-form::base>
 
 </div>
+
+@push('scripts')
+<script>
+function clear(inputId) {
+    var inputElement = document.getElementById(inputId);
+
+    inputElement.value = '';
+}
+</script>
+@endpush
+
