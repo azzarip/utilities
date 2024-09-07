@@ -1,5 +1,5 @@
 <div>
-    <a href="{{ $backUrl }}" class="block mb-2 ml-2"><x-heroicon-o-arrow-left class="inline w-6" />@lang('Back')</a>
+    <a href="{{ $backUrl }}" class="block mb-2 ml-2"><x-heroicon-o-arrow-left class="inline w-6 mr-1" />@lang('Back')</a>
 
     <h1 class="font-head text-3xl font-semibold text-center">@lang('a::address.manage')</h1>
 
