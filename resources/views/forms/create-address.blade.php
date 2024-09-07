@@ -1,5 +1,5 @@
 @props(['type' => ''])
-<a href="{{ request()->url() }}" class="block mb-2 ml-2"><x-heroicon-o-arrow-left class="inline w-6" /> Zurück</a>
+<a href="{{ request()->url() }}" class="block mb-2 ml-2"><x-heroicon-o-arrow-left class="inline w-6" />@lang('Back')</a>
 
 <div class="mt-2 mb-4 max-w-xl mx-auto">
     <h1 class="text-3xl text-center">@lang('a::forms.address.new_address')</h1>
