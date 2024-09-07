@@ -2,8 +2,8 @@
 <a href="{{ request()->url() }}" class="block mb-2 ml-2"><x-heroicon-o-arrow-left class="inline w-6" />@lang('Back')</a>
 
 <div class="mt-2 mb-4 max-w-xl mx-auto">
-    <h1 class="text-3xl text-center">@lang('a::forms.address.edit_address')</h1>
-    <x-forms::base :action="route('address.edit')" :button="trans('a::forms.address.save_address')">
+    <h1 class="text-3xl text-center">@lang('a::address.edit')</h1>
+    <x-forms::base :action="route('address.edit')" :button="trans('a::address.save')">
         <input type="hidden" name="redirect" value="{{ request()->url() }}">
         <input type="hidden" name="id" value="{{ request()->query('aid') }}">
         @method('put')
@@ -34,9 +34,9 @@
         </div>
 
         <div>
-            <label for="line1" class="block text-xl text-left">@lang('a::forms.address.line1'):</label>
+            <label for="line1" class="block text-xl text-left">@lang('a::address.line1'):</label>
             <input type="text" id="line1" name="line1" value="{{ old('line1') ?? $address->line1 }}" class="input-text"
-            placeholder="@lang('a::forms.address.line1-placeholder')" required autocomplete="address-line1">
+            placeholder="@lang('a::address.line1-placeholder')" required autocomplete="address-line1">
             @error('line1')
                 <p class="error-msg"> {{ $message }}</p>
             @enderror
@@ -44,10 +44,10 @@
 
         <div x-data="{ line2: {{ old('line2') ? 'true' : 'false'  }} }">
             <p class="pl-2 text-sm link" x-show="!line2" @click="line2 = true"><x-heroicon-s-plus-circle
-                    class="inline w-5 h-5 mb-1" /> @lang('a::forms.address.line2-label')</p>
+                    class="inline w-5 h-5 mb-1" /> @lang('a::address..line2-label')</p>
             <div x-show="line2" x-cloack>
                 <label for="line2" class="block text-xl text-left"><x-heroicon-s-minus-circle
-                        class="inline w-5 h-5 mb-1 link" @click="line2 = false" />@lang('a::forms.address.line2'):</label>
+                        class="inline w-5 h-5 mb-1 link" @click="line2 = false" />@lang('a::address.line2'):</label>
                 <input type="text" id="line2" name="line2" class="input-text" value="{{ old('line2') ?? $address->line2 }}"
                 placeholder="(Optional)" autocomplete="address-line2">
                 @error('line2')
@@ -58,9 +58,9 @@
 
         <div class="grid grid-cols-4 gap-2">
             <div class="col-span-3 my-2">
-                <label for="city" class="block text-xl text-left">@lang('a::forms.address.city'):</label>
+                <label for="city" class="block text-xl text-left">@lang('a::address.city'):</label>
                 <input type="text" id="city" name="city" value="{{ old('city')  ?? $address->city }}" class="input-text"
-                placeholder="@lang('a::forms.address.city')" required autocomplete="address-level2">
+                placeholder="@lang('a::address.city')" required autocomplete="address-level2">
             </div>
 
             <div class="col-span-1 my-2">
@@ -81,14 +81,14 @@
                 <input type="checkbox" name="shipping" id="shipping" class="w-4 h-4 md:w-6 md:h-6"
                 @checked( old('shipping') ?? ($type == 'shipping'))>
                 <label for="shipping" class="text-xl">
-                    <x-heroicon-o-truck class="w-6 h-6 md:w-8 md:h-8 inline mb-1" /> @lang('a::forms.address.shipping_address')
+                    <x-heroicon-o-truck class="w-6 h-6 md:w-8 md:h-8 inline mb-1" /> @lang('a::address.shipping')
                 </label>
             </div>
             <div class="flex items-center gap-x-2">
                 <input type="checkbox" name="billing" id="billing" class="w-4 h-4 md:w-6 md:h-6"
                 @checked( old('billing') ?? ($type == 'billing'))>
                 <label for="billing" class="text-xl">
-                    <x-heroicon-o-clipboard-document-list class="w-6 h-6 md:w-8 md:h-8 inline mb-1" /> @lang('a::forms.address.billing_address')
+                    <x-heroicon-o-clipboard-document-list class="w-6 h-6 md:w-8 md:h-8 inline mb-1" /> @lang('a::address.billing')
                 </label>
             </div>
         </div>
