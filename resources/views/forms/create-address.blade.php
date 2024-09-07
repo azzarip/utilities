@@ -1,3 +1,4 @@
+@props(['type' => ''])
 <div class="mt-2 mb-4 max-w-xl mx-auto">
     <h1 class="text-3xl text-center">@lang('a::forms.address.new_address')</h1>
     <x-forms::base :action="route('address.create')" :button="trans('a::forms.address.save_address')">
