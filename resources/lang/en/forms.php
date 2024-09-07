@@ -25,5 +25,6 @@ return [
         'city' => 'City',
         'billing_address' => 'Billing Address',
         'shipping_address' => 'Shipping Address',
+        'edit_address' => 'Edit Address',
     ],
 ];

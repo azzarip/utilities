@@ -25,5 +25,6 @@ return [
         'city' => 'Stadt',
         'billing_address' => 'Rechnungsadresse',
         'shipping_address' => 'Versandadresse',
+        'edit_address' => 'Adresse Bearbeiten',
     ],
 ];
