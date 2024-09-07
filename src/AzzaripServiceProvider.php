@@ -2,6 +2,7 @@
 
 namespace Azzarip\Utilities;
 
+use Azzarip\Utilities\Address\AddressRouter;
 use Azzarip\Utilities\Commands\GenerateSitemap;
 use Azzarip\Utilities\CookieConsent\ConsentManager;
 use Azzarip\Utilities\Filament\Widgets\AdminButton;
@@ -32,6 +33,7 @@ class AzzaripServiceProvider extends PackageServiceProvider
         Livewire::component('azzarip.utilities.filament.widgets.admin-button', AdminButton::class);
         EncryptCookies::except('cookie_consent');
         Blade::component('theme', Theme::class);
+        Blade::component('address-router', AddressRouter::class);
         Blade::anonymousComponentPath(
             $this->getPath() . '/views/forms', 'forms');
         Blade::anonymousComponentPath(
