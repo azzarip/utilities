@@ -2,6 +2,7 @@
 
 namespace Azzarip\Utilities;
 
+use Azzarip\Utilities\Address\AddressManager;
 use Azzarip\Utilities\Address\AddressRouter;
 use Azzarip\Utilities\Commands\GenerateSitemap;
 use Azzarip\Utilities\CookieConsent\ConsentManager;
@@ -30,7 +31,7 @@ class AzzaripServiceProvider extends PackageServiceProvider
     public function bootingPackage(): void
     {
         Livewire::component('cookie-consent', ConsentManager::class);
-        Livewire::component('address-manager', ConsentManager::class);
+        Livewire::component('address-manager', AddressManager::class);
         Livewire::component('azzarip.utilities.filament.widgets.admin-button', AdminButton::class);
         EncryptCookies::except('cookie_consent');
         Blade::component('theme', Theme::class);
