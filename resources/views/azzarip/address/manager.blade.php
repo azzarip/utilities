@@ -1,12 +1,12 @@
 <div>
     <a href="{{ $backUrl }}" class="block mb-2 ml-2"><x-heroicon-o-arrow-left class="inline w-6" />@lang('Back')</a>
 
-    <h1 class="font-head text-3xl font-semibold text-center">Adresse Verwalten</h1>
+    <h1 class="font-head text-3xl font-semibold text-center">@lang('a::address.manage')</h1>
 
     <div class="w-full my-4 grid gap-x-16 gap-y-2 grid-cols-1 lg:grid-cols-2 max-lg:max-w-lg mx-auto">
 
         <div class="">
-            <p class="font-head font-semibold py-3 text-2xl">@lang('a::address..shipping_address')</p>
+            <p class="font-head font-semibold py-3 text-2xl">@lang('a::address.shipping')</p>
             <div class="flex w-full items-start lg:h-[120px]">
                 <x-heroicon-o-truck class="w-16 lg:w-1/3 h-20 mx-auto" />
                 <div class="w-2/3 mx-auto pl-6 border-l-2">
@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="order-3 lg:order-2">
-            <p class="font-head font-semibold py-3 text-2xl">@lang('a::address..billing_address')</p>
+            <p class="font-head font-semibold py-3 text-2xl">@lang('a::address.billing')</p>
             <div class="flex w-full items-start lg:h-[120px]">
                 <x-heroicon-o-clipboard-document-list class="w-16 lg:w-1/3 h-20 mx-auto" />
                 <div class="w-2/3 mx-auto pl-6 border-l-2">
@@ -62,13 +62,13 @@
                                     <button
                                         class="text-sm w-full cursor-pointer hover:bg-slate-200  mx-auto block px-2 font-semibold text-black"
                                         type="submit">
-                                        <x-heroicon-o-pencil class="inline w-3 aspect-auto mr-1" /> Ändern
+                                        <x-heroicon-o-pencil class="inline w-3 aspect-auto mr-1" /> @lang('modify')
                                     </button> </form>
                                     <button
                                         class="text-sm w-full cursor-pointer hover:bg-slate-200  mx-auto block px-2 font-semibold  text-red-700"
                                         type="button" wire:click="delete('{{ $id }}')"
                                         wire:confirm="Sind Sie sicher, dass Sie diese Adresse löschen möchten?">
-                                        <x-heroicon-s-x-mark class="inline w-3 aspect-auto mr-1" /> Löschen
+                                        <x-heroicon-s-x-mark class="inline w-3 aspect-auto mr-1" /> @lang('delete')
                                     </button>
                                 </div>
                             </td>
@@ -120,13 +120,13 @@
                                     <button
                                         class="text-sm w-full cursor-pointer hover:bg-slate-200  mx-auto block px-2 font-semibold text-black"
                                         type="submit">
-                                        <x-heroicon-o-pencil class="inline w-3 aspect-auto mr-1" /> Ändern
+                                        <x-heroicon-o-pencil class="inline w-3 aspect-auto mr-1" /> @lang('modify')
                                     </button></form>
                                     <button
                                         class="text-sm w-full cursor-pointer hover:bg-slate-200  mx-auto block px-2 font-semibold  text-red-700"
                                         type="button" wire:click="delete('{{ $id }}')"
                                         wire:confirm="Sind Sie sicher, dass Sie diese Adresse löschen möchten?">
-                                        <x-heroicon-s-x-mark class="inline w-3 aspect-auto mr-1" /> Löschen
+                                        <x-heroicon-s-x-mark class="inline w-3 aspect-auto mr-1" /> @lang('delete')
                                     </button>
                                 </div>
                             </td>
@@ -141,7 +141,7 @@
                     <input type="hidden" name="type" value="shipping">
                     <button type="submit"
                         class="w-8/12 text-md mx-auto block border-2 py-1 px-2 border-black hover:bg-slate-800 hover:text-white  bg-white text-black"><x-heroicon-s-plus
-                            class="inline w-4 h-5 mr-5 mb-1" />@lang('a::forms.adress.add_address')</button>
+                            class="inline w-4 h-5 mr-5 mb-1" />@lang('a::address.add')</button>
                 </form>
             </div>
         </div>
