@@ -61,7 +61,7 @@
 
             <div class="col-span-1 my-2">
                 <label for="zip" class="block text-xl text-left">Plz:</label>
-                <input type="text" id="zip" name="zip" value="{{ old('zip') }}" class="input-text"
+                <input type="text" maxlength="4" pattern="\d*" id="zip" name="zip" value="{{ old('zip') }}" class="input-text"
                 placeholder="1234" required autocomplete="postal-code">
             </div>
         </div>
