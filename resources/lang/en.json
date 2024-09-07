@@ -1,5 +1,7 @@
 {
     "login": "Login",
     "Logout": "Logout",
-    "Back": "Back"
+    "Back": "Back",
+    "modify": "Modify",
+    "delete": "Delete",
 }

@@ -1,5 +1,7 @@
 {
     "login": "Anmelden",
     "Logout": "Abmelden",
-    "Back": "Zurück"
+    "Back": "Zurück",
+    "modify": "Ändern",
+    "delete": "Löschen",
 }
