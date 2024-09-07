@@ -21,7 +21,7 @@ return [
         'line1' => 'Street and House Number',
         'line1-placeholder' => 'Strasse und House Nr.',
         'line2' => 'Additional Address',
-        'line2-placeholder' => 'additional Address',
+        'line2-label' => 'additional Address',
         'city' => 'City',
         'billing_address' => 'Billing Address',
         'shipping_address' => 'Shipping Address',
