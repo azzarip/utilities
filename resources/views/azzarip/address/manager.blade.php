@@ -83,7 +83,7 @@
                     <input type="hidden" name="type" value="shipping">
                     <button type="submit"
                         class="w-8/12 text-md mx-auto block border-2 py-1 px-2 border-black hover:bg-slate-800 hover:text-white  bg-white text-black"><x-heroicon-s-plus
-                            class="inline w-4 h-5 mr-5 mb-1" />@lang('a::forms.adress.add_address')</button>
+                            class="inline w-4 h-5 mr-5 mb-1" />@lang('a::address.add')</button>
                 </form>
             </div>
         </div>

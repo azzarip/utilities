@@ -11,6 +11,6 @@ return [
     'shipping' => 'Versandadresse',
     'edit' => 'Adresse Bearbeiten',
     'add' => 'Adresse Hinzufügen',
-    'manage' => 'Adresse Verwalten',
+    'manage' => 'Adressen Verwalten',
 
 ];

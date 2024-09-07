@@ -12,5 +12,5 @@ return [
     'shipping' => 'Shipping Address',
     'edit' => 'Edit Address',
     'add' => 'Add Address',
-    'manage' => 'Manage Address',
+    'manage' => 'Manage Addresses',
 ];
