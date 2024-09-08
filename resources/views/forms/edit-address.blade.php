@@ -45,7 +45,7 @@
         <div x-data="{ line2: {{ old('line2') ?? $address->line2 ? 'true' : 'false'  }} }">
             <p class="pl-2 text-sm link" x-show="!line2" @click="line2 = true"><x-heroicon-s-plus-circle
                     class="inline w-5 h-5 mb-1" /> @lang('a::address.line2-label')</p>
-            <div x-show="line2" x-cloack>
+            <div x-show="line2" x-cloak>
                 <label for="line2" class="block text-xl text-left"><x-heroicon-s-minus-circle
                         class="inline w-5 h-5 mb-1 link" @click="line2 = false; clear('line2')" />@lang('a::address.line2'):</label>
                 <input type="text" id="line2" name="line2" class="input-text" value="{{ old('line2') ?? $address->line2 }}"
@@ -75,6 +75,20 @@
         @error('zip')
             <p class="error-msg"> {{ $message }}</p>
         @enderror
+
+        <div x-data="{ info: {{ old('line2') ?? $address->info ? 'true' : 'false'  }} }">
+            <p class="pl-2 text-sm link" x-show="!info" @click="info = true"><x-heroicon-s-plus-circle
+                    class="inline w-5 h-5 mb-1" /> @lang('a::address.info')</p>
+            <div x-show="info" x-cloak>
+                <label for="info" class="block text-xl text-left"><x-heroicon-s-minus-circle
+                        class="inline w-5 h-5 mb-1 link" @click="info = false; clear('info')" />@lang('a::address.info'):</label>
+                <textarea type="text" id="info" maxlength="500" name="info" class="input-text" value="{{ old('info') }}"
+                placeholder="(Optional)"></textarea>
+                @error('info')
+                    <p class="error-msg"> {{ $message }}</p>
+                @enderror
+            </div>
+        </div>
 
         <div class="ml-4 py-4 flex flex-col gap-y-4 justify-around md:flex-row">
             <div class="flex items-center gap-x-2">
