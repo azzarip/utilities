@@ -1,6 +1,7 @@
 <div>
+    @if($backUrl)
     <a href="{{ $backUrl }}" class="block mb-2 ml-2"><x-heroicon-o-arrow-left class="inline w-6 mr-1" />@lang('Back')</a>
-
+    @endif
     <h1 class="font-head text-3xl font-semibold text-center">@lang('a::address.manage')</h1>
 
     <div class="w-full my-4 grid gap-x-16 gap-y-2 grid-cols-1 lg:grid-cols-2 max-lg:max-w-lg mx-auto">
