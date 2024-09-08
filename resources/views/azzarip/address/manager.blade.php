@@ -65,12 +65,14 @@
                                         type="submit">
                                         <x-heroicon-o-pencil class="inline w-3 aspect-auto mr-1" /> @lang('modify')
                                     </button> </form>
+                                    @if($count > 1)
                                     <button
                                         class="text-sm w-full cursor-pointer hover:bg-slate-200  mx-auto block px-2 font-semibold  text-red-700"
                                         type="button" wire:click="delete('{{ $id }}')"
                                         wire:confirm="Sind Sie sicher, dass Sie diese Adresse löschen möchten?">
                                         <x-heroicon-s-x-mark class="inline w-3 aspect-auto mr-1" /> @lang('delete')
                                     </button>
+                                    @endif
                                 </div>
                             </td>
                         </tr>
@@ -123,12 +125,14 @@
                                         type="submit">
                                         <x-heroicon-o-pencil class="inline w-3 aspect-auto mr-1" /> @lang('modify')
                                     </button></form>
+                                    @if($count > 1)
                                     <button
                                         class="text-sm w-full cursor-pointer hover:bg-slate-200  mx-auto block px-2 font-semibold  text-red-700"
                                         type="button" wire:click="delete('{{ $id }}')"
                                         wire:confirm="Sind Sie sicher, dass Sie diese Adresse löschen möchten?">
                                         <x-heroicon-s-x-mark class="inline w-3 aspect-auto mr-1" /> @lang('delete')
                                     </button>
+                                    @endif
                                 </div>
                             </td>
                         </tr>

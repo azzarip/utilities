@@ -12,5 +12,6 @@ return [
     'edit' => 'Adresse Bearbeiten',
     'add' => 'Adresse Hinzufügen',
     'manage' => 'Adressen Verwalten',
+    'info' => 'Versandinformationen',
 
 ];

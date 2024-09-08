@@ -75,6 +75,21 @@
             <p class="error-msg"> {{ $message }}</p>
         @enderror
 
+
+        <div x-data="{ info: {{ old('info') ? 'true' : 'false'  }} }">
+            <p class="pl-2 text-sm link" x-show="!info" @click="info = true"><x-heroicon-s-plus-circle
+                    class="inline w-5 h-5 mb-1" /> @lang('a::address.info')</p>
+            <div x-show="info" x-cloack>
+                <label for="info" class="block text-xl text-left"><x-heroicon-s-minus-circle
+                        class="inline w-5 h-5 mb-1 link" @click="info = false; clear('info')" />@lang('a::address.info'):</label>
+                <textarea type="text" id="info" maxlength="500" name="info" class="input-text" value="{{ old('info') }}"
+                placeholder="(Optional)"></textarea>
+                @error('info')
+                    <p class="error-msg"> {{ $message }}</p>
+                @enderror
+            </div>
+        </div>
+
         <div class="ml-4 py-4 flex flex-col gap-y-4 justify-around md:flex-row">
             <div class="flex items-center gap-x-2">
                 <input type="checkbox" name="shipping" id="shipping" class="w-4 h-4 md:w-6 md:h-6"
