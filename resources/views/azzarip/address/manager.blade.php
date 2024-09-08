@@ -41,7 +41,7 @@
                 <table>
                     @foreach ($addresses as $id => $address)
                         <tr
-                            class="border-b rounded-lg cursor-pointer w-full {{ $shippingAddress->id == $id ? 'bg-amber-100' : '' }}">
+                            class="border-b rounded-lg cursor-pointer w-full {{ $shippingAddress->id == $id ? 'bg-amber-100' : 'hover:bg-amber-50' }}">
                             <td class="px-2 w-1/12">
                                 <div class="border-2 border-black w-3 rounded-full aspect-square
                             {{ $shippingAddress->id == $id ? 'bg-yellow-600' : '' }}"
@@ -99,7 +99,7 @@
                 <table>
                     @foreach ($addresses as $id => $address)
                         <tr
-                            class="border-b rounded-lg cursor-pointer w-full {{ $billingAddress->id == $id ? 'bg-amber-100' : '' }}">
+                            class="border-b rounded-lg cursor-pointer w-full {{ $billingAddress->id == $id ? 'bg-amber-100' : 'hover:bg-amber-50' }}">
                             <td class="px-2 w-1/12">
                                 <div class="border-2 border-black w-3 rounded-full aspect-square
                             {{ $billingAddress->id == $id ? 'bg-yellow-600' : '' }}"
