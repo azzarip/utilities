@@ -1,4 +1,4 @@
-@props(['new' => 'false'])
+@props(['new' => false])
 <?php $string = $new ? 'new-password' : 'current-password'; ?>
 
 <div>
