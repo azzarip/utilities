@@ -4,6 +4,10 @@
     @elseif($mode == 'edit')
         <x-forms::edit-address :$type :$address />
     @else
-        @livewire('address-manager', ['backUrl' => $backUrl])
+        @if(auth()->user()->has_address)
+            @livewire('address-manager', ['backUrl' => $backUrl])
+        @else
+            <x-forms::new-address />
+        @endif
     @endif
 </div>
