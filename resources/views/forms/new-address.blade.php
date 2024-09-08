@@ -1,4 +1,4 @@
-@props(['billing' => false])
+@props(['billing' => false, 'backUrl'])
 <div class="mt-2 mb-4 max-w-xl mx-auto">
     @if($billing)
     <h1 class="font-head text-3xl font-semibold text-center">@lang('a::address.new_billing')</h1>
@@ -6,7 +6,7 @@
     <h1 class="font-head text-3xl font-semibold text-center">@lang('a::address.new')</h1>
     @endif
     <x-forms::base :action="route('address.create')" :button="trans('a::address.save')">
-        <input type="hidden" name="redirect" value="{{ request()->url() }}">
+        <input type="hidden" name="redirect" value="{{ $backUrl }}">
         <input type="hidden" name="shipping" value="true">
         <input type="hidden" name="billing" value="true">
 

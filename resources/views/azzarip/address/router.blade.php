@@ -7,7 +7,7 @@
         @if(auth()->user()->has_address)
             @livewire('address-manager', ['backUrl' => $backUrl])
         @else
-            <x-forms::new-address />
+            <x-forms::new-address :backUrl="request()->url()" />
         @endif
     @endif
 </div>
