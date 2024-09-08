@@ -14,4 +14,5 @@ return [
     'add' => 'Add Address',
     'manage' => 'Manage Addresses',
     'info' => 'Shipping Information',
+    'new_billing' => 'Billing Information',
 ];

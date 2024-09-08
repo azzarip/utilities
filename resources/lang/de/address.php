@@ -13,5 +13,6 @@ return [
     'add' => 'Adresse Hinzufügen',
     'manage' => 'Adressen Verwalten',
     'info' => 'Versandinformationen',
+    'new_billing' => 'Rechnungsdetails',
 
 ];
