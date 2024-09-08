@@ -39,6 +39,8 @@ class AddressManager extends Component
 
     public function delete($id) {
         Address::find($id)->remove();
+        $this->loadAddresses();
+        auth()->user()->refresh();
     }
 
     protected function loadAddresses(){
