@@ -6,18 +6,22 @@
 
     <div class="w-full my-4 grid gap-x-16 gap-y-2 grid-cols-1 lg:grid-cols-2 max-lg:max-w-lg mx-auto">
 
-        <div class="">
+        <div>
             <p class="font-head font-semibold py-3 text-2xl">@lang('a::address.shipping')</p>
-            <div class="flex w-full items-start lg:h-[120px]">
+            <div class="lg:min-h-[120px]">
+            <div class="flex w-full items-start">
                 <x-heroicon-o-truck class="w-16 lg:w-1/3 h-20 mx-auto" />
                 <div class="w-2/3 mx-auto pl-6 border-l-2">
                     @foreach ($shippingAddress->toArray() as $line)
                         <p>{{ $line }}</p>
                     @endforeach
-                    @isset($shippingAddress->info)
-                        <p class="mt-4 italic">{{ $shipping->info }}</p>
-                    @endisset
                 </div>
+            </div>
+            @if($shippingAddress->info)
+            <div x-data="{info: false}">
+                <p class="mt-4 italic text-sm">{{ $shippingAddress->info }}</p>
+            </div>
+            @endif
             </div>
         </div>
         <div class="order-3 lg:order-2">
@@ -28,9 +32,6 @@
                     @foreach ($billingAddress->toArray() as $line)
                         <p>{{ $line }}</p>
                     @endforeach
-                    @isset($billingAddress->info)
-                        <p class="mt-4 italic">{{ $billing->info }}</p>
-                    @endisset
                 </div>
             </div>
         </div>

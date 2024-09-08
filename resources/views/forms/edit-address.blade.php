@@ -82,7 +82,7 @@
             <div x-show="info" x-cloak>
                 <label for="info" class="block text-xl text-left"><x-heroicon-s-minus-circle
                         class="inline w-5 h-5 mb-1 link" @click="info = false; clear('info')" />@lang('a::address.info'):</label>
-                <textarea type="text" id="info" maxlength="500" name="info" class="input-text" value="{{ old('info') }}"
+                <textarea type="text" id="info" maxlength="500" name="info" class="input-text" value="{{ old('info') ?? $address->info }}"
                 placeholder="(Optional)"></textarea>
                 @error('info')
                     <p class="error-msg"> {{ $message }}</p>
