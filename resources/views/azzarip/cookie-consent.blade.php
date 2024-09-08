@@ -1,5 +1,5 @@
 <aside id="cookies-policy" x-data="{ 'expand': false }" x-show="$wire.show"
-    data-text="{{ json_encode(__('azzarip::cookies.details')) }}">
+    data-text="{{ json_encode(__('a::cookies.details')) }}">
     <div class="fixed inset-0 flex items-center justify-center pointer-events-none z-20 bg-black/10">
         <div class="fixed bottom-0 w-full max-w-4xl px-4 pt-4 bg-white pointer-events-auto rounded-t-md">
             <div class="max-w-4xl mx-auto">
@@ -36,7 +36,7 @@
             </div>
             <div class="flex flex-row justify-center w-full gap-4 py-2 align-bottom border-t cursor-pointer"
                 @click="expand = ! expand">
-                <span class="font-semibold text-center">@lang('azzarip::cookies.customize')</span>
+                <span class="font-semibold text-center">@lang('a::cookies.customize')</span>
                 <x-heroicon-s-chevron-up class="w-6 svg" x-cloak x-show="expand" />
                 <x-heroicon-s-chevron-down class="w-6 svg" x-show="!expand" />
             </div>
@@ -45,7 +45,7 @@
                 <form wire:submit="acceptSelected" class="w-11/12 px-2 mx-auto mb-5 space-y-4 lg:px-5">
                     <label for="essentials" class="relative block">
                         <div class="flex flex-row justify-between mx-auto">
-                            <span class="font-semibold lg:pl-5">@lang('azzarip::cookies.categories.essentials.title')</span>
+                            <span class="font-semibold lg:pl-5">@lang('a::cookies.categories.essentials.title')</span>
                             <div class="flex items-center justify-center">
                                 <div class="block switch">
                                     <input type="checkbox" class="" checked disabled>
@@ -53,19 +53,19 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="mt-2">@lang('azzarip::cookies.categories.essentials.description')</p>
+                        <p class="mt-2">@lang('a::cookies.categories.essentials.description')</p>
                     </label>
 
                     @foreach ($cookieCategories as $category)
 
                             <div class="flex flex-row justify-between mx-auto">
-                                <span class="font-semibold lg:pl-5">@lang('azzarip::cookies.categories.' . $category . '.title')</span>
+                                <span class="font-semibold lg:pl-5">@lang('a::cookies.categories.' . $category . '.title')</span>
                                 <label class="switch">
                                     <input type="checkbox" wire:model='selected' value="{{ $category }}">
                                     <span class="slider round"></span>
                                 </label>
                             </div>
-                            <p class="mt-2">@lang('azzarip::cookies.categories.' . $category . '.description')</p>
+                            <p class="mt-2">@lang('a::cookies.categories.' . $category . '.description')</p>
 
                     @endforeach
                     <button type="submit"
