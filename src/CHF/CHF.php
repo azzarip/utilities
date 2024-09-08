@@ -26,6 +26,11 @@ class CHF
         return new CHF($this->rappe + $that->rappe);
     }
 
+    public function mult(int $int): CHF
+    {
+        return new CHF($this->rappe * $int);
+    }
+
     public function toInt(): int
     {
         return $this->rappe;
