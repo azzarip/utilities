@@ -65,6 +65,7 @@ class CHF
 
     public function multInt(int $i): self {
         $this->int *= $i;
+        $this->value *= $i;
         return $this;
     }
     public function toLabel(): string
