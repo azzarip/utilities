@@ -63,6 +63,10 @@ class CHF
         return $this->toLabel();
     }
 
+    public function multInt(int $i): self {
+        $this->int *= $i;
+        return $this;
+    }
     public function toLabel(): string
     {
         return 'CHF '.$this->toString();
