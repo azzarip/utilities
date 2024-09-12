@@ -11,43 +11,43 @@ class CHF
         return new CHF(round(100 * $chf));
     }
 
-    public static function int(int $rappe)
+    public static function int(int $int)
     {
-        return new CHF($rappe);
+        return new CHF($int);
     }
 
-    public function __construct(public int $rappe)
+    public function __construct(public int $int)
     {
-        $this->value = $rappe / 100;
+        $this->value = $int / 100;
     }
 
     public function sum(CHF $that): CHF
     {
-        return new CHF($this->rappe + $that->rappe);
+        return new CHF($this->int + $that->int);
     }
 
     public function mult(int $int): CHF
     {
-        return new CHF($this->rappe * $int);
+        return new CHF($this->int * $int);
     }
 
     public function toInt(): int
     {
-        return $this->rappe;
+        return $this->int;
     }
 
     public function __toString(): string
     {
-        return $this->toLabel();
+        return $this->toString();
     }
 
     public function toString(): string
     {
-        if ($this->rappe == 0) {
+        if ($this->int == 0) {
             return '0.-';
         }
 
-        if ($this->rappe % 100 == 0) {
+        if ($this->int % 100 == 0) {
             return number_format($this->value, 0, '.', '\'').'.-';
         }
 
@@ -56,7 +56,7 @@ class CHF
 
     public function toOffer(): string
     {
-        if ($this->rappe == 0) {
+        if ($this->int == 0) {
             return 'Gratis';
         }
 
