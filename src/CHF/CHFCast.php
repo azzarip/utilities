@@ -33,7 +33,7 @@ class CHFCast implements CastsAttributes
         }
 
         if ($value instanceof CHF) {
-            return $value->rappe;
+            return $value->int;
         }
 
         return $value * 100;
