@@ -21,9 +21,7 @@ class AzzaripServiceProvider extends PackageServiceProvider
     public function configurePackage(Package $package): void
     {
         $package
-            ->name('azzarip')
-            ->hasConfigFile(configFileName: 'domains')
-            ->hasConfigFile('utilities')
+            ->name('utilities')
             ->hasRoute('routes')
             ->hasCommands($this->getCommands());
     }
@@ -47,11 +45,7 @@ class AzzaripServiceProvider extends PackageServiceProvider
         $this->loadViewsFrom($this->getPath() . '/views/azzarip', 'azzarip');
     }
 
-    public function registeringPackage(): void
-    {
-        Config::set('app-modules.modules_namespace', 'Domains');
-        Config::set('app-modules.modules_directory', 'domains');
-    }
+
 
     public function packageBooted(): void
     {
