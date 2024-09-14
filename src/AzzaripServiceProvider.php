@@ -4,13 +4,8 @@ namespace Azzarip\Utilities;
 
 use Azzarip\Utilities\Address\AddressManager;
 use Azzarip\Utilities\Address\AddressRouter;
-use Azzarip\Utilities\Commands\GenerateSitemap;
-use Azzarip\Utilities\CookieConsent\ConsentManager;
 use Azzarip\Utilities\Filament\Widgets\AdminButton;
-use Azzarip\Utilities\Theme\Theme;
-use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\Facades\Config;
 use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -22,6 +17,7 @@ class AzzaripServiceProvider extends PackageServiceProvider
     {
         $package
             ->name('utilities')
+            ->hasViews()
             ->hasRoute('routes');
 
     }
