@@ -24,18 +24,11 @@ class AzzaripServiceProvider extends PackageServiceProvider
 
     public function bootingPackage(): void
     {
-        Livewire::component('address-manager', AddressManager::class);
-        Livewire::component('azzarip.utilities.filament.widgets.admin-button', AdminButton::class);
-        Blade::component('address-router', AddressRouter::class);
-        Blade::anonymousComponentPath(
-            $this->getPath() . '/views/forms', 'forms');
-        Blade::anonymousComponentPath(
-                $this->getPath() . '/views/modals', 'modals');
+        // Livewire::component('azzarip.utilities.filament.widgets.admin-button', AdminButton::class);
 
         $this->loadTranslationsFrom($this->getPath() . '/lang', 'a');
         $this->loadJsonTranslationsFrom($this->getPath() . '/lang');
     }
-
 
     protected function getPath()
     {
