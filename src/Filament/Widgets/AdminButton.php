@@ -16,5 +16,5 @@ class AdminButton extends Widget
 
     public string $icon;
 
-    protected static string $view = 'azzarip::filament.admin-button';
+    protected static string $view = 'utilities::filament.admin-button';
 }
