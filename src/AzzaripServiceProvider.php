@@ -22,17 +22,14 @@ class AzzaripServiceProvider extends PackageServiceProvider
     {
         $package
             ->name('utilities')
-            ->hasRoute('routes')
-            ->hasCommands($this->getCommands());
+            ->hasRoute('routes');
+
     }
 
     public function bootingPackage(): void
     {
-        Livewire::component('cookie-consent', ConsentManager::class);
         Livewire::component('address-manager', AddressManager::class);
         Livewire::component('azzarip.utilities.filament.widgets.admin-button', AdminButton::class);
-        EncryptCookies::except('cookie_consent');
-        Blade::component('theme', Theme::class);
         Blade::component('address-router', AddressRouter::class);
         Blade::anonymousComponentPath(
             $this->getPath() . '/views/forms', 'forms');
@@ -52,12 +49,7 @@ class AzzaripServiceProvider extends PackageServiceProvider
 
     }
 
-    protected function getCommands(): array
-    {
-        return [
-            GenerateSitemap::class,
-        ];
-    }
+
 
     protected function getPath()
     {
