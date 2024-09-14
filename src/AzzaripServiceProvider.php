@@ -38,17 +38,7 @@ class AzzaripServiceProvider extends PackageServiceProvider
 
         $this->loadTranslationsFrom($this->getPath() . '/lang', 'a');
         $this->loadJsonTranslationsFrom($this->getPath() . '/lang');
-
-        //$this->loadViewsFrom($this->getPath() . '/views/azzarip', 'azzarip');
     }
-
-
-
-    public function packageBooted(): void
-    {
-
-    }
-
 
 
     protected function getPath()
