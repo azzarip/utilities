@@ -22,7 +22,7 @@ class AzzaripServiceProvider extends PackageServiceProvider
     {
         $package
             ->name('azzarip')
-            ->hasConfigFile('domains')
+            ->hasConfigFile(configFileName: 'domains')
             ->hasConfigFile('utilities')
             ->hasRoute('routes')
             ->hasCommands($this->getCommands());
