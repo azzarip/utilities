@@ -18,16 +18,14 @@ class AzzaripServiceProvider extends PackageServiceProvider
         $package
             ->name('utilities')
             ->hasViews()
+            ->hasTranslations()
             ->hasRoute('routes');
 
     }
 
     public function bootingPackage(): void
     {
-        // Livewire::component('azzarip.utilities.filament.widgets.admin-button', AdminButton::class);
-
-        $this->loadTranslationsFrom($this->getPath() . '/lang', 'a');
-        $this->loadJsonTranslationsFrom($this->getPath() . '/lang');
+        Livewire::component('azzarip.utilities.filament.widgets.admin-button', AdminButton::class);
     }
 
     protected function getPath()
