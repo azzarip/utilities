@@ -5,6 +5,4 @@ use Azzarip\Utilities\Http\Middleware\DomainKey;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/deploy', DeployController::class);
-
 

@@ -18,6 +18,7 @@ class AzzaripServiceProvider extends PackageServiceProvider
         $package
             ->name('utilities')
             ->hasViews()
+            ->hasCommand()
             ->hasTranslations()
             ->hasRoute('routes');
 
