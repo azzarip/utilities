@@ -4,6 +4,7 @@ namespace Azzarip\Utilities;
 
 use Azzarip\Utilities\Address\AddressManager;
 use Azzarip\Utilities\Address\AddressRouter;
+use Azzarip\Utilities\Commands\ImageLinkCommand;
 use Azzarip\Utilities\Filament\Widgets\AdminButton;
 use Illuminate\Support\Facades\Blade;
 use Livewire\Livewire;
@@ -18,7 +19,7 @@ class AzzaripServiceProvider extends PackageServiceProvider
         $package
             ->name('utilities')
             ->hasViews()
-            ->hasCommand()
+            ->hasCommand(ImageLinkCommand::class)
             ->hasTranslations()
             ->hasRoute('routes');
 
