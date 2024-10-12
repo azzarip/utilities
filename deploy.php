@@ -24,8 +24,11 @@ task('deploy:build', function () {
     run('cd {{release_path}} && npm run build');
 });
 
-desc('Clears all compiled view files');
-task('artisan:optimize', artisan('optimize'));
+desc('Optimizes and caches all views, routes, config');
+task('artisan:optimize', function() {
+    artisan('optimize');
+    artisan('filament:optimize');
+});
 
 after('deploy:symlink', 'deploy:build');
 after('deploy:failed', 'deploy:unlock');
