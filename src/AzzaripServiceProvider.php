@@ -2,6 +2,7 @@
 
 namespace Azzarip\Utilities;
 
+use Azzarip\Utilities\Commands\ClearLogCommand;
 use Livewire\Livewire;
 use Illuminate\Support\Facades\Blade;
 use Spatie\LaravelPackageTools\Package;
@@ -15,6 +16,7 @@ class AzzaripServiceProvider extends PackageServiceProvider
     {
         $package
             ->name('utilities')
+            ->hasCommand(ClearLogCommand::class)
             ->hasViews()
             ->hasTranslations()
             ->hasRoute('routes');
