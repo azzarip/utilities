@@ -24,6 +24,13 @@ task('deploy:build', function () {
     run('cd {{release_path}} && npm run build');
 });
 
+desc('Restart queue worker');
+task('deploy:restart_queue', function () {
+    artisan( 'queue:restart');
+});
+
+
+
 desc('Optimizes and caches all views, routes, config');
 task('artisan:optimize', function() {
     artisan('optimize');
@@ -31,6 +38,8 @@ task('artisan:optimize', function() {
 });
 
 after('deploy:symlink', 'deploy:build');
+after('deploy:symlink', 'deploy:restart_queue');
+
 after('deploy:failed', 'deploy:unlock');
 
 task('test:namespace', function () {
