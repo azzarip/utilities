@@ -25,7 +25,7 @@ task('deploy:build', function () {
 });
 
 desc('Restart queue worker');
-task('deploy:restart_queue', function () {
+task('artisan:queue:restart', function () {
     artisan( 'queue:restart');
 });
 
@@ -37,8 +37,7 @@ task('artisan:optimize', function() {
     artisan('filament:optimize');
 });
 
-after('deploy:symlink', 'deploy:build');
-after('deploy:symlink', 'deploy:restart_queue');
+after('deploy:symlink', 'artisan:queue:restart');
 
 after('deploy:failed', 'deploy:unlock');
 
@@ -50,8 +49,9 @@ desc('Deploys your project');
 task('deploy', [
         'deploy:prepare',
         'deploy:vendors',
+        'artisan:migrate',
         'artisan:storage:link',
         'artisan:optimize',
-        'artisan:migrate',
+        'deploy:build',
         'deploy:publish',
 ]);
