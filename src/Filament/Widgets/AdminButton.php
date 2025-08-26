@@ -16,5 +16,8 @@ class AdminButton extends Widget
 
     public string $icon;
 
-    protected static string $view = 'utilities::filament.admin-button';
+    public function getView(): string
+    {
+        return 'utilities::filament.admin-button';
+    }
 }

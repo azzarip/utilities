@@ -19,6 +19,7 @@ class AdminConfig
         Config::set('app.locale', 'en');
         Config::set('app.debug', true);
         Config::set('tagmanager.enabled', false);
+
         return $next($request);
     }
 }

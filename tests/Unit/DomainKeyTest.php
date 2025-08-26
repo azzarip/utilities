@@ -12,5 +12,5 @@ test('it adds domain key to request', function () {
         return response(200);
     };
 
-    (new DomainKey())->handle($request, $next);
+    (new DomainKey)->handle($request, $next);
 });
